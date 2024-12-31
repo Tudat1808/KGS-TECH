@@ -15,17 +15,18 @@ const Header = ({ home, company, business, blog }) => {
   };
 
   return (
-    <header className="flex justify-between items-center p-4 bg-gray-800 text-white">
-      <div className="flex gap-8">
-      <ul className="flex gap-8">
-        <li className="hover:text-gray-400">{home}</li>
-        <li className="hover:text-gray-400">{company}</li>
-        <li className="hover:text-gray-400">{business}</li>
-        <li className="hover:text-gray-400">{blog}</li>
-      </ul>
+    <header className="flex justify-between items-center p-4 bg-black text-white">
+      <div className="hover:text-gray-400 flex items-center ml-12">
+        <div>LOGO</div>
       </div>
       
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-12">
+      <ul className="flex gap-8">
+        <li className="hover:text-gray-400">Home</li>
+        <li className="hover:text-gray-400">Company</li>
+        <li className="hover:text-gray-400">Business</li>
+        <li className="hover:text-gray-400">Blog</li>
+      </ul>
         <Select
           defaultValue="vi"
           style={{ width: 120 }}
