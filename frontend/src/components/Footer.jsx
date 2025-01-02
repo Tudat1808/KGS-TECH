@@ -1,4 +1,5 @@
 import React from "react";
+import { FacebookFilled, LinkedinFilled, PhoneFilled, YoutubeFilled } from '@ant-design/icons';
 
 const Footer = () => {
   return (
@@ -30,6 +31,12 @@ const Footer = () => {
           <p>Email: <a href="mailto:info@techcompany.com" className="hover:text-blue-400">info@kgstechcompany.com</a></p>
           <p>Phone: +0 (123) 456-789</p>
           <p>Address: 40 so 16 duong An Phu quan Thu Duc</p>
+          <p className="space-x-6">
+            <FacebookFilled />
+            <LinkedinFilled />
+            <PhoneFilled />
+            <YoutubeFilled />
+          </p>
         </div>
       </div>
 

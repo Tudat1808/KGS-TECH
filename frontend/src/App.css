@@ -1,0 +1,13 @@
+  .container {
+    display: flex;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    padding: 0 300px; /* Cách hai bên 300px */
+    box-sizing: border-box; /* Đảm bảo padding không làm vượt ra ngoài */
+    max-width: 100%; /* Đảm bảo không bể ảnh khi có padding */
+  }
+  
+  .container img {
+    max-width: 100%; /* Giới hạn chiều rộng của ảnh */
+    height: auto; /* Đảm bảo tỷ lệ khung hình của ảnh được giữ nguyên */
+  }
