@@ -6,25 +6,28 @@ import { Link } from "react-router-dom";
 
 const { Option } = Select;
 
-const Header = ({ home, company, business, blog }) => {
-  const { t, i18n } = useTranslation();
-  
+const Header = () => {
+  const { t, i18n } = useTranslation(); // Sử dụng i18n để thay đổi ngôn ngữ
+
   const [language, setLanguage] = useState('vi'); // Mặc định là Tiếng Việt
   const [menuOpen, setMenuOpen] = useState(false); // Trạng thái của menu hamburger
-  
+
+  // Hàm để thay đổi ngôn ngữ
   const handleLanguageChange = (value) => {
-    setLanguage(value);
-    i18n.changeLanguage(value); 
+    setLanguage(value); // Cập nhật trạng thái language
+    i18n.changeLanguage(value); // Thay đổi ngôn ngữ của ứng dụng
   };
 
+  // Hàm để mở hoặc đóng menu hamburger
   const toggleMenu = () => {
     setMenuOpen(!menuOpen); // Thay đổi trạng thái của menu khi nhấp vào hamburger
   };
 
   return (
     <header className="flex justify-between items-center p-4 bg-black text-white w-full max-w-full overflow-x-hidden">
-      <div className="hover:text-gray-400 flex items-center ml-12">
-        <div>LOGO</div>
+      <div className="hover:text-gray-400 flex items-center ml-12 mr-4">
+        {/* LOGO */}
+        <div>{t('logo')}</div>
       </div>
 
       {/* Menu Hamburger */}
@@ -37,26 +40,27 @@ const Header = ({ home, company, business, blog }) => {
       {/* Menu chính */}
       <div className={`flex items-center gap-8 w-full justify-end ${menuOpen ? 'block' : 'hidden'} md:flex`}>
         <ul className="flex gap-8 md:flex-row flex-col justify-end">
-          <li className="hover:text-gray-400"> <Link to="/">home</Link> </li>
-          <li className="hover:text-gray-400"><Link to="/company">company</Link></li>
-          <li className="hover:text-gray-400"><Link to="/bussiness">bussiness</Link></li>
-          <li className="hover:text-gray-400"><Link to="/blog">blog</Link></li>
+          <li className="hover:text-gray-400"><Link to="/">{t('home')}</Link></li>
+          <li className="hover:text-gray-400"><Link to="/company">{t('company')}</Link></li>
+          <li className="hover:text-gray-400"><Link to="/bussiness">{t('bussiness')}</Link></li>
+          <li className="hover:text-gray-400"><Link to="/blog">{t('blog')}</Link></li>
         </ul>
 
         {/* Dropdown Select for Language */}
         <div className="flex flex-col md:flex-row items-center gap-4">
-          {/* Login on top and Language below on mobile */}
+          {/* Login và Signup trên mobile */}
           <Select
             defaultValue="lo"
             className="text-sm sm:text-base"
           >
-            <Option value="lo">Login</Option>
-            <Option value="si">Signup</Option>
+            <Option value="lo">{t('login')}</Option>
+            <Option value="si">{t('signup')}</Option>
           </Select>
 
+          {/* Dropdown ngôn ngữ */}
           <Select
-            defaultValue="vi"
-            onChange={handleLanguageChange}
+            value={language} // Truyền giá trị của ngôn ngữ hiện tại
+            onChange={handleLanguageChange} // Gọi hàm khi thay đổi ngôn ngữ
             className="bg-gray-700 text-white text-sm sm:text-base"
           >
             <Option value="vi">Tiếng Việt</Option>
@@ -70,4 +74,3 @@ const Header = ({ home, company, business, blog }) => {
 };
 
 export default Header;
-

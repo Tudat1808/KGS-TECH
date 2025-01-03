@@ -3,5 +3,9 @@
   "company": "Công ty",
   "business": "Kinh doanh",
   "blog": "Blog",
-  "welcome": "Chào mừng bạn đến với trang web của chúng tôi!"
+  "login": "Đăng Nhập",
+  "signup": "Đăng Ký",
+  "tiếng_việt": "Tiếng Việt",
+  "english": "English",
+  "japanese": "日本語"
 }

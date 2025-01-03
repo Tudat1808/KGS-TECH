@@ -14,14 +14,14 @@ const MilestoneProgress = () => {
       <div className="bg-white p-8 rounded-lg shadow-xl w-full max-w-4xl">
         <h2 className="text-3xl text-center font-semibold mb-8">Milestone Tracker</h2>
         <div className="relative">
-          {/* Đoạn thẳng (line) thể hiện tiến trình */}
-          <div className="absolute top-0 left-1/2 w-1 h-full bg-gray-300 transform -translate-x-1/2"></div>
+          {/* Đoạn thẳng (line) thể hiện tiến trình - chỉ hiện ở màn hình lớn */}
+          <div className="absolute top-0 left-1/2 w-1 h-full bg-gray-300 transform -translate-x-1/2 hidden md:block"></div>
 
           {/* Flex column to organize milestones */}
           <div className="flex flex-col items-center space-y-8">
             {/* Cột mốc bên trái */}
             {milestones.map((milestone, index) => (
-              <div key={index} className="relative flex items-center space-x-8 w-full">
+              <div key={index} className="relative flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-8 w-full">
                 {/* Cột mốc bên trái */}
                 <div
                   className={`flex items-center justify-center w-12 h-12 rounded-full border-4 transition-all duration-300 ease-in-out ${
@@ -34,7 +34,7 @@ const MilestoneProgress = () => {
                 </div>
 
                 {/* Nội dung thành tựu bên trái */}
-                <div className="flex flex-col items-start w-full md:w-2/3">
+                <div className="flex flex-col items-start w-full md:w-2/3 text-center md:text-left">
                   {/* Tiêu đề thành tựu */}
                   <h3 className="text-xl font-semibold text-gray-800">{milestone.title}</h3>
                   <p className="text-sm text-gray-500">{milestone.date}</p>
@@ -45,8 +45,8 @@ const MilestoneProgress = () => {
                   )}
                 </div>
 
-                {/* Thêm ảnh bên phải */}
-                <div className="w-1/3 hidden md:block">
+                {/* Thêm ảnh bên phải - luôn hiển thị đầy đủ */}
+                <div className="w-full md:w-1/3">
                   <img
                     src={milestone.image} // Sử dụng image từ dữ liệu milestone
                     alt={milestone.title}
