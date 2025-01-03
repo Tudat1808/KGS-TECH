@@ -26,11 +26,11 @@ const MilestoneProgress = () => {
                 <div
                   className={`flex items-center justify-center w-12 h-12 rounded-full border-4 transition-all duration-300 ease-in-out ${
                     milestone.completed
-                      ? 'border-green-500 bg-green-200 shadow-xl transform scale-110'
+                      ? 'border-gray-400 bg-gray-200 shadow-xl'
                       : 'border-gray-400 bg-gray-200 shadow-md'
                   } z-10 cursor-pointer`}
                 >
-                  <FaTrophy className={`text-xl ${milestone.completed ? 'text-green-600' : 'text-gray-500'}`} />
+                  <FaTrophy className={`text-xl ${milestone.completed ? 'text-gray-600' : 'text-gray-500'}`} />
                 </div>
 
                 {/* Nội dung thành tựu bên trái */}
