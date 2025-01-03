@@ -37,10 +37,10 @@ const Header = ({ home, company, business, blog }) => {
       {/* Menu chính */}
       <div className={`flex items-center gap-8 w-full justify-end ${menuOpen ? 'block' : 'hidden'} md:flex`}>
         <ul className="flex gap-8 md:flex-row flex-col justify-end">
-          <li className="hover:text-gray-400"><a href="/home" className="hover:text-blue-400">Home</a></li>
-          <li className="hover:text-gray-400"><a href="/company" className="hover:text-blue-400">Company</a></li>
-          <li className="hover:text-gray-400"><a href="/bussiness" className="hover:text-blue-400">Bussiness</a></li>
-          <li className="hover:text-gray-400"><a href="/blog" className="hover:text-blue-400">Blog</a></li>
+          <li className="hover:text-gray-400"> <Link to="/home">home</Link> </li>
+          <li className="hover:text-gray-400"><Link to="/company">company</Link></li>
+          <li className="hover:text-gray-400"><Link to="/bussiness">bussiness</Link></li>
+          <li className="hover:text-gray-400"><Link to="/blog">blog</Link></li>
         </ul>
 
         {/* Dropdown Select for Language */}
