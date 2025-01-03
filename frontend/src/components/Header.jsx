@@ -37,7 +37,7 @@ const Header = ({ home, company, business, blog }) => {
       {/* Menu chính */}
       <div className={`flex items-center gap-8 w-full justify-end ${menuOpen ? 'block' : 'hidden'} md:flex`}>
         <ul className="flex gap-8 md:flex-row flex-col justify-end">
-          <li className="hover:text-gray-400"> <Link to="/home">home</Link> </li>
+          <li className="hover:text-gray-400"> <Link to="/">home</Link> </li>
           <li className="hover:text-gray-400"><Link to="/company">company</Link></li>
           <li className="hover:text-gray-400"><Link to="/bussiness">bussiness</Link></li>
           <li className="hover:text-gray-400"><Link to="/blog">blog</Link></li>
