@@ -24,7 +24,7 @@ const Header = () => {
   };
 
   return (
-    <header className="flex justify-between items-center p-4 bg-black text-white w-full max-w-full overflow-x-hidden">
+    <header className="sticky-header flex justify-between items-center p-4 bg-black text-white w-full max-w-full overflow-x-hidden">
       <div className="hover:text-gray-400 flex items-center ml-12 mr-4">
         {/* LOGO */}
         <div>{t('logo')}</div>
@@ -40,10 +40,10 @@ const Header = () => {
       {/* Menu chính */}
       <div className={`flex items-center gap-8 w-full justify-end ${menuOpen ? 'block' : 'hidden'} md:flex`}>
         <ul className="flex gap-8 md:flex-row flex-col justify-end">
-          <li className="hover:text-gray-400"><Link to="/">{t('home')}</Link></li>
-          <li className="hover:text-gray-400"><Link to="/company">{t('company')}</Link></li>
-          <li className="hover:text-gray-400"><Link to="/bussiness">{t('bussiness')}</Link></li>
-          <li className="hover:text-gray-400"><Link to="/blog">{t('blog')}</Link></li>
+          <li className="hover:text-gray-400"><Link to="/">{t('Home')}</Link></li>
+          <li className="hover:text-gray-400"><Link to="/company">{t('Company')}</Link></li>
+          <li className="hover:text-gray-400"><Link to="/business">{t('Business')}</Link></li>
+          <li className="hover:text-gray-400"><Link to="/blog">{t('Blog')}</Link></li>
         </ul>
 
         {/* Dropdown Select for Language */}

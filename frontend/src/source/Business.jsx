@@ -9,7 +9,7 @@ import ContactUs from '../components/ContactUs';
 import { Link } from "react-router-dom";
 import '../App.css';
 
-const Bussiness = () => {
+const Business = () => {
     const { t } = useTranslation();
 
     const [currentIndex1, setCurrentIndex1] = useState(0);
@@ -28,23 +28,26 @@ const Bussiness = () => {
     return (
       <>
         <Header />
-        <div className="relative w-full h-[500px]">
-        <img
-    src="https://plus.unsplash.com/premium_photo-1683141136472-bd21514555a2?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVzaW5lc3MlMjBsZWFkZXJ8ZW58MHx8MHx8fDA%3D"
-    alt="Full Width Image"
-    className="object-cover w-full h-full"
-  />
-  <div className="absolute inset-0 flex items-center bg-black bg-opacity-50 text-white px-6 sm:px-12 lg:px-72">
-    <div className="text-center sm:text-left max-w-xl mx-auto sm:mx-0">
-      <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold mb-4">
-        KGS-Tech Business
-      </h1>
-      <p className="text-base sm:text-lg md:text-xl">
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis euismod, nisl ut tincidunt tempus, nisi elit venenatis eros.
-      </p>
-    </div>
-  </div>
-        <div className="px-20 py-2"><Link to="/">Home</Link> -{'>'} Bussiness</div>
+        <div className="relative w-full">
+          <div className="relative w-full h-[500px]">
+            <img
+              src="https://plus.unsplash.com/premium_photo-1683141136472-bd21514555a2?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVzaW5lc3MlMjBsZWFkZXJ8ZW58MHx8MHx8fDA%3D"
+              alt="Full Width Image"
+              className="object-cover w-full h-full"
+            />
+            <div className="absolute inset-0 flex items-center bg-black bg-opacity-50 text-white px-6 sm:px-12 lg:px-72">
+              <div className="text-center sm:text-left max-w-xl mx-auto sm:mx-0">
+                <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold mb-4">
+                  KGS-Tech Business
+                </h1>
+                <p className="text-base sm:text-lg md:text-xl">
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis euismod, nisl ut tincidunt tempus, nisi elit venenatis eros.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        <div className="px-6 py-2 mt-6"><Link to="/">Home</Link> -{'>'} Business</div>
   
         <div className="text-left max-w-4xl mx-auto px-6 sm:px-12 md:px-20 mt-12">
           {/* Tiêu đề */}
@@ -79,21 +82,14 @@ const Bussiness = () => {
             </table>
           </div>
         </div>
-
-
-
-
-
-
-
         <OurProjects/>
         <Benefits/>
-          <ContactUs/>
-          <ScrollToTopButton />
-          <Footer />
+        <ContactUs/>
+        <ScrollToTopButton />
+        <Footer />
         </div>
       </>
     );
   };
 
-export default Bussiness;
+export default Business;

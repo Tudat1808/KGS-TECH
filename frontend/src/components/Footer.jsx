@@ -29,13 +29,17 @@ const Footer = () => {
         <div className="w-full">
           <h4 className="text-lg font-semibold mb-4 text-white">Contact Us</h4>
           <p>Email: <a href="mailto:info@techcompany.com" className="hover:text-blue-400">info@kgstechcompany.com</a></p>
-          <p>Phone: +0 (123) 456-789</p>
+          <p>Phone:
+            <a href="tel: +0 (123) 456-789" className="hover:text-blue-400 pl-1">
+              +0 (123) 456-789
+            </a>
+          </p>
           <p>Address: 40 so 16 duong An Phu quan Thu Duc</p>
           <div className="flex space-x-4 mt-4 flex-wrap">
-            <FacebookFilled className="text-xl hover:text-blue-400" />
-            <LinkedinFilled className="text-xl hover:text-blue-400" />
-            <PhoneFilled className="text-xl hover:text-blue-400" />
-            <YoutubeFilled className="text-xl hover:text-blue-400" />
+            <FacebookFilled className="text-xl hover:text-blue-400 cursor-pointer" />
+            <LinkedinFilled className="text-xl hover:text-blue-400 cursor-pointer" />
+            <PhoneFilled className="text-xl hover:text-blue-400 cursor-pointer" />
+            <YoutubeFilled className="text-xl hover:text-blue-400 cursor-pointer" />
           </div>
         </div>
       </div>

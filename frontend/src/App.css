@@ -11,3 +11,10 @@
     max-width: 100%; /* Giới hạn chiều rộng của ảnh */
     height: auto; /* Đảm bảo tỷ lệ khung hình của ảnh được giữ nguyên */
   }
+
+  .sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Đảm bảo header nằm trên các phần tử khác */
+    background-color: #000; /* Để header có nền màu khi cuộn */
+  }  

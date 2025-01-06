@@ -17,25 +17,27 @@ const Company = () => {
     return (
       <>
         <Header />
-        <div className="relative w-full h-[500px]">
-        <img
-          src="https://ivision.com/wp-content/uploads/2023/02/AdobeStock_229930631.jpeg" // Thay đổi URL ảnh ở đây
-          alt="Full Width Image"
-          className="object-cover w-full h-full"
-        />
-        {/* Nội dung phía trên ảnh */}
-        <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 text-white">
-          <div className="text-center max-w-xl">
-            <h1 className="text-4xl md:text-6xl font-extrabold mb-4">
-              KGS-Tech Company
-            </h1>
-            <p className="text-lg md:text-xl">
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis euismod, nisl ut tincidunt tempus, nisi elit venenatis eros.
-            </p>
+        <div className="relative w-full">
+          <div className="relative w-full h-[500px]">
+            <img
+              src="https://ivision.com/wp-content/uploads/2023/02/AdobeStock_229930631.jpeg" // Thay đổi URL ảnh ở đây
+              alt="Full Width Image"
+              className="object-cover w-full h-full"
+            />
+            {/* Nội dung phía trên ảnh */}
+            <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 text-white">
+              <div className="text-center max-w-xl">
+                <h1 className="text-4xl md:text-6xl font-extrabold mb-4">
+                  KGS-Tech Company
+                </h1>
+                <p className="text-lg md:text-xl">
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis euismod, nisl ut tincidunt tempus, nisi elit venenatis eros.
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div className="px-20 py-2"><Link to="/">Home</Link> -{'>'} Company</div>
+        <div className="px-6 py-2 mt-6"><Link to="/">Home</Link> -{'>'} Company</div>
   
         <div className="text-left max-w-full pl-6 sm:pl-12 md:pl-20 lg:pl-60">
           <h1 className="text-4xl md:text-6xl font-extrabold mb-4">

@@ -23,14 +23,15 @@ const Home = () => {
     }
   ];
 
-  const settings = {
-    dots: true,
+  const settings = { 
+    dots: false,
     infinite: true,
-    speed: 2000,
+    speed: 3000,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
+    arrows: false,
     responsive: [
       {
         breakpoint: 768, // Mobile
@@ -54,24 +55,13 @@ const Home = () => {
         }
       }
     ]
-  };
+};
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const goToNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-  };
-
-  const goToPrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
-  };
 
   return (
     <>
       <Header />
       <div className="relative w-full">
-        {/* Slider Section */}
         <div className="relative w-full h-[500px]">
         <img
           src="https://previews.123rf.com/images/peshkov/peshkov1807/peshkov180700247/104448752-connected-devices-internet-of-things-iot-at-abstract-background-3d-rendering.jpg"
@@ -81,7 +71,7 @@ const Home = () => {
           <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 text-white">
             <div className="text-center max-w-xl">
               <h1 className="text-4xl md:text-6xl font-extrabold mb-4">
-                KGS-Tech Company
+                KGS-Tech Company's Homepage
               </h1>
               <p className="text-lg md:text-xl">
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis euismod, nisl ut tincidunt tempus, nisi elit venenatis eros.
@@ -123,9 +113,9 @@ const Home = () => {
 
         {/* Latest News Section */}
         <div className="flex flex-col items-center p-8">
-          <h2 className="text-3xl font-semibold text-gray-800 mb-4 text-center">Latest News</h2>
-          <div className="flex justify-center mb-4">
-            <FaNewspaper size={30} />
+          <div className="flex items-center justify-center mb-4">
+            <FaNewspaper size={30} className="text-gray-800 mr-2" />
+            <h2 className="text-3xl font-semibold text-gray-800">Latest News</h2>
           </div>
           <div className="flex flex-col lg:flex-row lg:space-x-8 lg:space-y-0 space-y-8 w-full lg:px-64">
             <div className="flex flex-col items-center space-y-4">
@@ -174,10 +164,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-
-
-
-
         <ScrollToTopButton />
         <Footer />
       </div>
