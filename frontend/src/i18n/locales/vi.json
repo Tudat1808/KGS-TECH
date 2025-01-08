@@ -3,9 +3,10 @@
   "company": "Công ty",
   "business": "Kinh doanh",
   "blog": "Blog",
-  "login": "Đăng Nhập",
-  "signup": "Đăng Ký",
-  "tiếng_việt": "Tiếng Việt",
-  "english": "English",
-  "japanese": "日本語"
+  "headline": "Tiêu điểm KGS-Tech",
+  "missionAndVision": "Sứ mệnh và Tầm nhìn",
+  "latestBlogs": "Các bài blog mới nhất",
+  "slider1": "Tạo ra các giải pháp sáng tạo thúc đẩy sự phát triển và hiệu quả kinh doanh.",
+  "slider2": "Xây dựng công nghệ thân thiện với môi trường cho một tương lai bền vững.",
+  "slider3": "Tăng cường sức mạnh cho các doanh nghiệp trên toàn cầu thông qua các đối tác mạnh mẽ."
 }

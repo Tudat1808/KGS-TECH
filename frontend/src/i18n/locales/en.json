@@ -1,8 +1,19 @@
 {
-    "home": "Home",
-    "company": "Company",
-    "business": "Business",
-    "blog": "Blog",
-    "welcome": "Welcome to our website!"
-  }
+  "home": "Home",
+  "company": "Company",
+  "business": "Business",
+  "blog": "Blog",
+  "homepage_title": "KGS-Tech Homepage",
+  "homepage_description": "KGS-Tech's Homepage is the digital hub for showcasing the company's AI-driven software, cloud services, and innovative tech solutions.",
+  "headlines": "KGS-Tech Headlines",
+  "headlines_description": "is making strides with AI-powered software...",
+  "mission_and_vision": "Mission and Vision",
+  "mission_1": "Creating innovative solutions that drive business growth and efficiency.",
+  "mission_2": "Building eco-friendly technology for a sustainable future.",
+  "mission_3": "Empowering businesses worldwide through strong partnerships.",
+  "latest_blogs": "Latest Blogs",
+  "blog_1": "Dive into how AI is transforming business operations...",
+  "blog_2": "Learn about the benefits of scalable cloud services...",
+  "blog_3": "Discover how KGS-Tech is integrating sustainability into tech innovations."
+}
   

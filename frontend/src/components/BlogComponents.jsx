@@ -46,7 +46,7 @@ const BlogComponents = () => {
               <h2 className="text-2xl font-semibold text-white mb-2">{post.title}</h2>
               <p className="text-gray-300 mb-4">{post.description}</p>
               <p className="text-gray-500 text-sm mb-4">{new Date(post.date).toLocaleDateString()}</p>
-              <Link to={`/posts/${post.id}`} className="text-blue-400 hover:text-blue-500 transition-all duration-300">Read More ...</Link>
+              <Link to="/blog1" className="text-blue-400 hover:text-blue-500 transition-all duration-300">Read More ...</Link>
             </div>
           );
         })}

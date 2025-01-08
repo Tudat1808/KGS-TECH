@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FacebookFilled, LinkedinFilled, PhoneFilled, YoutubeFilled } from '@ant-design/icons';
 
 const Footer = () => {
@@ -9,8 +10,7 @@ const Footer = () => {
         <div className="w-full">
           <h4 className="text-lg font-semibold mb-4 text-white">About Us</h4>
           <p className="break-words">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          At KGS-Tech, we believe that technology should be an enabler of change and growth. With a team of highly skilled professionals, we combine expertise with creativity to develop innovative solutions that drive success and add value. Our team is committed to delivering quality results and building long-term partnerships based on trust, integrity, and mutual growth.
           </p>
         </div>
 
@@ -18,10 +18,10 @@ const Footer = () => {
         <div className="w-full">
           <h4 className="text-lg font-semibold mb-4 text-white">About KGS-Tech Groups</h4>
           <ul className="space-y-2">
-            <li><a href="/about" className="hover:text-blue-400">Products</a></li>
-            <li><a href="/services" className="hover:text-blue-400">Services</a></li>
-            <li><a href="/careers" className="hover:text-blue-400">Careers</a></li>
-            <li><a href="/contact" className="hover:text-blue-400">Contact Us</a></li>
+            <li><Link to ="/business#projects" className="hover:text-blue-400">Products</Link></li>
+            <li><Link to="/business#TopBusiness" className="hover:text-blue-400">Services</Link></li>
+            <li><Link to="/company#core" className="hover:text-blue-400">Careers</Link></li>
+            <li><Link to="/business#joinusnow" className="hover:text-blue-400">Contact Us</Link></li>
           </ul>
         </div>
 

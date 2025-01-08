@@ -12,10 +12,10 @@ i18n
       ja: { translation: ja },
       en: { translation: en },
     },
-    lng: 'vi',  // Ngôn ngữ mặc định
-    fallbackLng: 'vi',  // Ngôn ngữ dự phòng
+    lng: 'vi', // Ngôn ngữ mặc định
+    fallbackLng: 'en', // Ngôn ngữ dự phòng
     interpolation: {
-      escapeValue: false,  // Không cần escape trong React
+      escapeValue: false, // Không cần escape trong React
     },
   });
 
