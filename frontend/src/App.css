@@ -18,3 +18,14 @@
     z-index: 1000; /* Đảm bảo header nằm trên các phần tử khác */
     background-color: #000; /* Để header có nền màu khi cuộn */
   }  
+
+  .bg-cover {
+    background-size: cover;
+    background-position: center;
+  }
+  
+  button:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+  }
+  

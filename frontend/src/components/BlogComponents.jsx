@@ -1,23 +1,25 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-
-const posts = [
-  { id: 1, title: "Post 1", imageUrl: "https://emmareed.net/wp-content/uploads/2017/10/blog-2355684_1920.jpg", description: "This is a description of the first post.", date: "2025-01-01" },
-  { id: 2, title: "Post 2", imageUrl: "https://mailrelay.com/wp-content/uploads/2018/03/que-es-un-blog-1.png", description: "This is a description of the second post.", date: "2025-01-02" },
-  { id: 3, title: "Post 3", imageUrl: "https://mailrelay.com/wp-content/uploads/2017/04/video-tutoriales-sobre-email-marketing.jpg", description: "This is a description of the third post.", date: "2025-01-03" },
-  { id: 4, title: "Post 4", imageUrl: "https://chonweb.vn/hsc_content/hsc_up_dinhkem/1625816574.png", description: "This is a description of the fourth post.", date: "2025-01-04" },
-  { id: 5, title: "Post 5", imageUrl: "https://www.nameboy.com/wp-content/uploads/2021/02/Nameboy-Blog-graphics.png", description: "This is a description of the fifth post.", date: "2025-01-05" },
-  { id: 6, title: "Post 6", imageUrl: "https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2021/09/how-to-write-a-blog-post.png", description: "This is a description of the sixth post.", date: "2025-01-06" },
-  { id: 7, title: "Post 7", imageUrl: "https://www.beeblueg.com/images/bbg-blog/january-2020/whatisblog.png", description: "This is a description of the seventh post.", date: "2025-01-07" },
-  { id: 8, title: "Post 8", imageUrl: "https://eastsidewriters.com/wp-content/uploads/2021/06/featured-13.jpg", description: "This is a description of the eighth post.", date: "2025-01-08" },
-  { id: 9, title: "Post 9", imageUrl: "https://blogencounters.com/wp-content/uploads/2023/01/blogideas.jpg", description: "This is a description of the ninth post.", date: "2025-01-09" },
-  { id: 10, title: "Post 10", imageUrl: "https://www.blogtyrant.com/wp-content/uploads/2017/02/how-to-write-a-good-blog-post.png", description: "This is a description of the tenth post.", date: "2025-01-10" },
-];
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const BlogComponents = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage = 5;  // 5 bài viết mỗi trang
-  
+  const postsPerPage = 5;
+  const { t, i18n } = useTranslation(); // lấy i18n để xác định ngôn ngữ hiện tại
+
+  const posts = [
+    { id: 1, titleKey: t("blog.post1Title"), descriptionKey: t("blog.post1Description"), imageUrl: "https://emmareed.net/wp-content/uploads/2017/10/blog-2355684_1920.jpg", date: "2025-01-01" },
+    { id: 2, titleKey: t("blog.post2Title"), descriptionKey: t("blog.post2Description"), imageUrl: "https://mailrelay.com/wp-content/uploads/2018/03/que-es-un-blog-1.png", date: "2025-01-02" },
+    { id: 3, titleKey: t("blog.post3Title"), descriptionKey: t("blog.post3Description"), imageUrl: "https://mailrelay.com/wp-content/uploads/2017/04/video-tutoriales-sobre-email-marketing.jpg", date: "2025-01-03" },
+    { id: 4, titleKey: t("blog.post4Title"), descriptionKey: t("blog.post4Description"), imageUrl: "https://chonweb.vn/hsc_content/hsc_up_dinhkem/1625816574.png", date: "2025-01-04" },
+    { id: 5, titleKey: t("blog.post5Title"), descriptionKey: t("blog.post5Description"), imageUrl: "https://www.nameboy.com/wp-content/uploads/2021/02/Nameboy-Blog-graphics.png", date: "2025-01-05" },
+    { id: 6, titleKey: t("blog.post6Title"), descriptionKey: t("blog.post6Description"), imageUrl: "https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2021/09/how-to-write-a-blog-post.png", date: "2025-01-06" },
+    { id: 7, titleKey: t("blog.post7Title"), descriptionKey: t("blog.post7Description"), imageUrl: "https://www.beeblueg.com/images/bbg-blog/january-2020/whatisblog.png", date: "2025-01-07" },
+    { id: 8, titleKey: t("blog.post8Title"), descriptionKey: t("blog.post8Description"), imageUrl: "https://eastsidewriters.com/wp-content/uploads/2021/06/featured-13.jpg", date: "2025-01-08" },
+    { id: 9, titleKey: t("blog.post9Title"), descriptionKey: t("blog.post9Description"), imageUrl: "https://blogencounters.com/wp-content/uploads/2023/01/blogideas.jpg", date: "2025-01-09" },
+    { id: 10, titleKey: t("blog.post10Title"), descriptionKey: t("blog.post10Description"), imageUrl: "https://www.blogtyrant.com/wp-content/uploads/2017/02/how-to-write-a-good-blog-post.png", date: "2025-01-10" }
+  ];
+
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
@@ -25,11 +27,15 @@ const BlogComponents = () => {
   const nextPage = () => setCurrentPage(prev => Math.min(prev + 1, Math.ceil(posts.length / postsPerPage)));
   const prevPage = () => setCurrentPage(prev => Math.max(prev - 1, 1));
 
+  // Định nghĩa hàm hiển thị ngày tháng theo locale hiện tại
+  const formatDate = (date) => {
+    return new Date(date).toLocaleDateString(i18n.language);  // sử dụng i18n.language để lấy locale hiện tại
+  };
+
   return (
     <div className="p-8 bg-gray-900 min-h-screen flex flex-col items-center mb-8">
-      <h1 className="text-4xl font-bold text-white mb-8">Our Latest Blog</h1>
+      <h1 className="text-4xl font-bold text-white mb-8">{t('blog.title')}</h1>
 
-      {/* Grid: 1 cột cho di động, 2 cột cho tablet, 3 cột cho desktop */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl">
         {currentPosts.map((post, index) => {
           const isLarge = index === 0;
@@ -40,13 +46,13 @@ const BlogComponents = () => {
             >
               <img
                 src={post.imageUrl}
-                alt={post.title}
+                alt={t(post.titleKey)}  // Dịch tiêu đề
                 className={`w-full h-64 sm:h-72 md:h-80 lg:h-96 object-cover rounded-md mb-4 transition-all duration-500 ease-in-out transform ${isLarge ? 'h-96' : ''}`}
               />
-              <h2 className="text-2xl font-semibold text-white mb-2">{post.title}</h2>
-              <p className="text-gray-300 mb-4">{post.description}</p>
-              <p className="text-gray-500 text-sm mb-4">{new Date(post.date).toLocaleDateString()}</p>
-              <Link to="/blog1" className="text-blue-400 hover:text-blue-500 transition-all duration-300">Read More ...</Link>
+              <h2 className="text-2xl font-semibold text-white mb-2">{t(post.titleKey)}</h2>  {/* Dịch tiêu đề */}
+              <p className="text-gray-300 mb-4">{t(post.descriptionKey)}</p>  {/* Dịch mô tả */}
+              <p className="text-gray-500 text-sm mb-4">{formatDate(post.date)}</p>  {/* Dịch ngày tháng */}
+              <Link to={`/blog1`} className="text-blue-400 hover:text-blue-500 transition-all duration-300">{t('blog.readMore')}</Link>
             </div>
           );
         })}
@@ -58,15 +64,15 @@ const BlogComponents = () => {
           disabled={currentPage === 1}
           className="px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-all duration-300 ease-in-out"
         >
-          Previous
+          {t('blog.previous')}
         </button>
-        <span className="text-white">Page {currentPage} of {Math.ceil(posts.length / postsPerPage)}</span>
+        <span className="text-white">{t('blog.page')} {currentPage} {t('blog.of')} {Math.ceil(posts.length / postsPerPage)}</span>
         <button
           onClick={nextPage}
           disabled={currentPage === Math.ceil(posts.length / postsPerPage)}
           className="px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-all duration-300 ease-in-out"
         >
-          Next
+          {t('blog.next')}
         </button>
       </div>
     </div>

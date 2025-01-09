@@ -1,12 +1,225 @@
 {
-  "home": "Trang chủ",
-  "company": "Công ty",
-  "business": "Kinh doanh",
-  "blog": "Blog",
-  "headline": "Tiêu điểm KGS-Tech",
-  "missionAndVision": "Sứ mệnh và Tầm nhìn",
-  "latestBlogs": "Các bài blog mới nhất",
-  "slider1": "Tạo ra các giải pháp sáng tạo thúc đẩy sự phát triển và hiệu quả kinh doanh.",
-  "slider2": "Xây dựng công nghệ thân thiện với môi trường cho một tương lai bền vững.",
-  "slider3": "Tăng cường sức mạnh cho các doanh nghiệp trên toàn cầu thông qua các đối tác mạnh mẽ."
+  "home": {
+    "homepage_title": "Trang chủ của KGS-Tech",
+    "homepage_description": "Trang chủ của KGS-Tech là trung tâm kỹ thuật số giới thiệu phần mềm AI, dịch vụ đám mây, và các giải pháp công nghệ sáng tạo của công ty.",
+    "headlines": "Thông tin về KGS-Tech",
+    "headlines_description": "đang tiến bước với các phần mềm AI tự động hóa công việc, các đối tác toàn cầu mở rộng phạm vi hoạt động, triển khai dịch vụ đám mây quy mô lớn thành công và cam kết mạnh mẽ đối với sự bền vững. Công ty cũng đã nhận được sự công nhận trong ngành vì các giải pháp sáng tạo của mình.",
+    "company_name": "KGS-Tech",
+    "mission_and_vision": "Sứ mệnh và Tầm nhìn",
+    "latest_blogs": "Các bài viết mới nhất",
+    "blog_1": "Khám phá cách AI đang thay đổi hoạt động kinh doanh và tương tác khách hàng.",
+    "blog_2": "Tìm hiểu về lợi ích của dịch vụ đám mây quy mô lớn và tác động của nó đối với sự phát triển.",
+    "blog_3": "Khám phá cách KGS-Tech đang tích hợp tính bền vững vào các sáng tạo công nghệ.",
+    "mission_1": "Tạo ra các giải pháp sáng tạo thúc đẩy tăng trưởng và hiệu quả kinh doanh.",
+    "mission_2": "Xây dựng công nghệ thân thiện với môi trường cho một tương lai bền vững.",
+    "mission_3": "Trao quyền cho các doanh nghiệp trên toàn cầu thông qua các mối quan hệ đối tác vững mạnh.",
+    "news_1": "Công nghệ AI và blockchain đột phá đang tối ưu hóa hoạt động và nâng cao hiệu quả. Các doanh nghiệp cần thích nghi để duy trì lợi thế cạnh tranh trong bối cảnh thay đổi nhanh chóng.",
+    "news_2": "Các startup thân thiện với môi trường đang giải quyết các thách thức về khí hậu với những đổi mới như bao bì phân hủy sinh học và năng lượng mặt trời giá cả phải chăng, mở ra con đường cho một tương lai xanh hơn.",
+    "news_3": "Các hợp tác chiến lược giữa các ngành công nghiệp đang mở ra thị trường và đổi mới mới, thể hiện sức mạnh của sự hợp tác trong một thế giới kết nối.",
+    "homepage_ReadMore": "Đọc thêm"
+  },
+  "featured_projects": {
+    "title": "Dự Án Nổi Bật",
+    "project1": "Bệnh viện 1",
+    "project2": "Bệnh viện 2",
+    "project3": "Bệnh viện 3",
+    "more_projects": "Xem Thêm Dự Án"
+  },
+  "header": {
+    "LOGO": "KGS-Tech",
+    "home": "Trang Chủ",
+    "company": "Công Ty",
+    "business": "Doanh Nghiệp",
+    "blog": "Blog",
+    "login": "Đăng Nhập",
+    "signup": "Đăng Ký"
+  },
+  "company": {
+    "title": "Công ty KGS-Tech",
+    "description": "KGS-Tech là công ty công nghệ cung cấp các giải pháp sáng tạo cho doanh nghiệp trên toàn thế giới. Chúng tôi giúp tổ chức tối ưu hóa hoạt động, cải thiện trải nghiệm khách hàng và thúc đẩy tăng trưởng nhờ các tiến bộ công nghệ mới nhất.",
+    "core_values": {
+      "title": "Giá trị cốt lõi",
+      "paragraph1": "Chúng tôi duy trì các tiêu chuẩn cao nhất về sự trung thực và đạo đức trong mọi hoạt động. Hành động của chúng tôi phản ánh cam kết trở thành đáng tin cậy và minh bạch.",
+      "paragraph2": "Tiếp nhận sự thay đổi và nuôi dưỡng sự sáng tạo, chúng tôi không ngừng tìm kiếm các cách mới và tốt hơn để mang lại giá trị cho các bên liên quan."
+    },
+    "leaders": "Những người lãnh đạo KGS-Tech"
+  },
+  "milestoneTracker": {
+    "title": "Theo dõi Cột mốc"
+  },
+  "milestones": {
+    "start": {
+      "title": "Bắt đầu",
+      "description": "Hành trình bắt đầu",
+      "date": "Tháng 1 năm 2023"
+    },
+    "achievement1": {
+      "title": "Thành tựu 1",
+      "description": "Hoàn thành nhiệm vụ đầu tiên",
+      "date": "Tháng 3 năm 2023"
+    },
+    "achievement2": {
+      "title": "Thành tựu 2",
+      "description": "Đạt 100 điểm",
+      "date": "Tháng 6 năm 2023"
+    },
+    "final": {
+      "title": "Cột mốc cuối cùng",
+      "description": "Hoàn thành hành trình",
+      "date": "Tháng 12 năm 2023"
+    }
+  },
+  "gallery": {
+    "chro": "Giám đốc Nhân sự (CHRO)",
+    "vp": "Phó Chủ tịch (VP)",
+    "avp": "Trợ lý Phó Chủ tịch (AVP)",
+    "seniorManager": "Quản lý Cấp cao",
+    "manager": "Quản lý",
+    "productManager": "Quản lý Sản phẩm"
+  },
+  "business": {
+    "heroTitle": "Doanh Nghiệp KGS-Tech ",
+    "heroDescription": "KGS-Tech là một nhà sáng tạo hàng đầu trong công nghệ và chuyển đổi số. Sứ mệnh của chúng tôi là cung cấp các giải pháp tiên tiến giúp doanh nghiệp phát triển mạnh mẽ trong môi trường công nghệ ngày càng thay đổi. Chúng tôi tập trung vào việc mang lại giá trị vượt trội thông qua sự đổi mới, hiệu quả và cái nhìn chiến lược.",
+    "partnershipTitle": "Hợp Tác Của Công Ty",
+    "partnerships": "Hợp tác",
+    "partnershipDescription": "là yếu tố quan trọng đối với sự thành công của chúng tôi, tạo cơ hội cho sự phát triển và đổi mới lẫn nhau.",
+    "keyAspect": "Yếu tố chính",
+    "description": "Mô tả",
+    "sharedVision": "Tầm nhìn chung",
+    "sharedVisionDescription": "Cam kết lâu dài và mục tiêu chung.",
+    "innovation": "Đổi mới",
+    "innovationDescription": "Kết hợp chuyên môn để tạo ra các giải pháp sáng tạo.",
+    "readyToStart": "Sẵn sàng bắt đầu?",
+    "contactUs": "Liên hệ với chúng tôi hôm nay!"
+  },
+  "ourProjects": {
+    "title": "Các Dự Án Của Chúng Tôi",
+    "project1": {
+      "title": "Dự Án 1",
+      "description": "Chi tiết 1"
+    },
+    "project2": {
+      "title": "Dự Án 2",
+      "description": "Chi tiết 2"
+    },
+    "project3": {
+      "title": "Dự Án 3",
+      "description": "Chi tiết 3"
+    }
+  },
+  "benefits": {
+    "title": "Lợi Ích Khi Gia Nhập Chúng Tôi",
+    "careerGrowth": {
+      "title": "Phát Triển Nghề Nghiệp",
+      "description": "Chúng tôi cung cấp cơ hội học hỏi liên tục và các chương trình thăng tiến nghề nghiệp để giúp bạn phát triển trong hành trình chuyên môn của mình."
+    },
+    "workLifeBalance": {
+      "title": "Cân Bằng Công Việc Và Cuộc Sống",
+      "description": "Tận hưởng thời gian làm việc linh hoạt, các tùy chọn làm việc từ xa và chính sách nghỉ phép hào phóng để duy trì một sự cân bằng giữa công việc và cuộc sống."
+    },
+    "salaryCompensation": {
+      "title": "Lương Và Phúc Lợi Cạnh Tranh",
+      "description": "Nhận mức lương cạnh tranh với các khoản thưởng theo hiệu suất và các phúc lợi toàn diện hỗ trợ tài chính của bạn."
+    }
+  },
+  "contactUs": {
+    "title": "Tham Gia Cùng Chúng Tôi",
+    "openHours": {
+      "title": "Giờ Mở Cửa",
+      "mondayFriday": "Thứ Hai - Thứ Sáu: 8:00 AM - 5:00 PM",
+      "saturday": "Thứ Bảy: Đóng cửa",
+      "sunday": "Chủ Nhật: Đóng cửa"
+    },
+    "contactInfo": {
+      "title": "Thông Tin Liên Hệ",
+      "phone": "Điện thoại: +1 (555) 123-4567",
+      "address": "Địa chỉ: 40 So 16 Đường An Phú, Quận Thủ Đức"
+    },
+    "getInTouch": "Liên Hệ Với Chúng Tôi",
+    "form": {
+      "name": "Họ Tên",
+      "email": "Email",
+      "phone": "Số Điện Thoại",
+      "submit": "Gửi"
+    }
+  },
+  "blog": {
+    "title": "Các Bài Viết",
+    "post1Title": "Bài Viết 1",
+    "post1Description": "Đây là mô tả của bài viết đầu tiên.",
+    "post2Title": "Bài Viết 2",
+    "post2Description": "Đây là mô tả của bài viết thứ hai.",
+    "post3Title": "Bài Viết 3",
+    "post3Description": "Đây là mô tả của bài viết thứ ba.",
+    "post4Title": "Bài Viết 4",
+    "post4Description": "Đây là mô tả của bài viết thứ tư.",
+    "post5Title": "Bài Viết 5",
+    "post5Description": "Đây là mô tả của bài viết thứ năm.",
+    "post6Title": "Bài Viết 6",
+    "post6Description": "Đây là mô tả của bài viết thứ sáu.",
+    "post7Title": "Bài Viết 7",
+    "post7Description": "Đây là mô tả của bài viết thứ bảy.",
+    "post8Title": "Bài Viết 8",
+    "post8Description": "Đây là mô tả của bài viết thứ tám.",
+    "post9Title": "Bài Viết 9",
+    "post9Description": "Đây là mô tả của bài viết thứ chín.",
+    "post10Title": "Bài Viết 10",
+    "post10Description": "Đây là mô tả của bài viết thứ mười.",
+    "2025-01-01": "Ngày 1 tháng 1 năm 2025",
+    "2025-01-02": "Ngày 2 tháng 1 năm 2025",
+    "2025-01-03": "Ngày 3 tháng 1 năm 2025",
+    "2025-01-04": "Ngày 4 tháng 1 năm 2025",
+    "2025-01-05": "Ngày 5 tháng 1 năm 2025",
+    "2025-01-06": "Ngày 6 tháng 1 năm 2025",
+    "2025-01-07": "Ngày 7 tháng 1 năm 2025",
+    "2025-01-08": "Ngày 8 tháng 1 năm 2025",
+    "2025-01-09": "Ngày 9 tháng 1 năm 2025",
+    "2025-01-10": "Ngày 10 tháng 1 năm 2025",
+    "readMore": "Đọc Thêm",
+    "previous": "Trước",
+    "next": "Tiếp",
+    "page": "Trang",
+    "of": "của",
+    "heroTitle": "KGS-Tech Blogs",
+    "heroDescription": "Chào mừng bạn đến với blog chính thức của công ty KGS-Tech, nơi đổi mới gặp gỡ sự xuất sắc. Trong không gian này, chúng tôi chia sẻ những thông tin, ý tưởng và cập nhật mới nhất về ngành công nghệ, công ty của chúng tôi và cách chúng tôi đang định hình tương lai của công nghệ.",
+    "introTitle": "Chào mừng bạn đến với blog của công ty KGS-Tech",
+    "introDescription": "Thế giới công nghệ phát triển nhanh chóng, và việc cả doanh nghiệp lẫn cá nhân phải theo kịp là rất quan trọng. Bằng cách chia sẻ kinh nghiệm, cái nhìn và những cập nhật của chúng tôi trên nền tảng này, chúng tôi hy vọng tạo ra một không gian để người đọc học hỏi, phát triển và luôn cập nhật những tiến triển mới nhất trong công nghệ. Chúng tôi tin vào sức mạnh của sự hợp tác và chia sẻ kiến thức, và blog này là một trong những cách chúng tôi thúc đẩy tinh thần đó.",
+    "exploreArticles": "Khám phá thêm bài viết"
+  },
+  "blog1": {
+    "welcomeTitle": "Chào mừng bạn đến với Blog của công ty KGS-Tech",
+    "by": "Bởi",
+    "author": "John Doe",
+    "traveling": "Du lịch",
+    "travelingDescription": "là một trong những trải nghiệm bổ ích nhất mà ai cũng có thể có. Nó không chỉ là việc đến thăm những địa điểm mới mà còn là việc hòa mình vào các nền văn hóa khác nhau, kết nối với mọi người, và tạo ra những ký ức sẽ kéo dài suốt đời. Nhưng không phải tất cả những cuộc phiêu lưu đều cần đến những địa điểm du lịch đông đúc. Có vô số những viên ngọc ẩn trên khắp thế giới đang chờ đợi được khám phá bởi những ai sẵn sàng tìm kiếm ngoài lối mòn.",
+    "hiddenGemsTitle": "Những viên ngọc ẩn trong du lịch",
+    "hiddenGemsDescription": "Một trong những khía cạnh đẹp nhất của du lịch là khám phá những nơi không thường được đề cập trong sách hướng dẫn. Từ những bãi biển vắng ở Đông Nam Á đến các ngôi làng trên núi yên bình ở châu Âu, có vô số điểm đến nơi bạn có thể trải nghiệm sự bình yên và tĩnh lặng, xa rời đám đông.",
+    "offBeatenPathTitle": "Những cuộc phiêu lưu ngoài con đường mòn",
+    "philippines": "Philippines",
+    "philippinesDescription": "Một hòn đảo xa xôi chỉ được một số ít người dân địa phương biết đến, mang đến những bãi biển hoang sơ, nước trong xanh và cảnh quan xanh tươi.",
+    "swissAlps": "Dãy Alps Thụy Sĩ",
+    "swissAlpsDescription": "Một ngôi làng ẩn giấu chỉ có thể đến được bằng cách đi bộ qua những khu rừng đẹp, cung cấp những cảnh quan tuyệt đẹp và một cộng đồng địa phương ấm áp.",
+    "whyGemsMatterTitle": "Tại sao những viên ngọc ẩn lại quan trọng",
+    "whyGemsMatterDescription": "Mặc dù những viên ngọc ẩn này có thể cần một chút nỗ lực để tìm kiếm, nhưng chúng cung cấp điều gì đó thực sự đặc biệt: một cơ hội để trải nghiệm thế giới một cách thân mật và ý nghĩa hơn. Vì vậy, lần tới khi bạn lên kế hoạch cho chuyến đi của mình, hãy cân nhắc việc khám phá những địa điểm ít được biết đến thay vì chỉ chọn những địa điểm nổi tiếng.",
+    "topDestinationsTitle": "Những điểm đến hàng đầu để khám phá",
+    "indonesia": "Indonesia",
+    "indonesiaDescription": "Những bãi biển yên tĩnh với nước trong xanh lý tưởng để thư giãn và khám phá.",
+    "peru": "Peru",
+    "peruDescription": "Những ngôi làng trên núi xa xôi cung cấp văn hóa cổ xưa và cảnh quan tuyệt vời.",
+    "scandinavia": "Scandinavia",
+    "scandinaviaDescription": "Những nơi ẩn mình ngoài lưới điện, bao quanh bởi thiên nhiên, lý tưởng cho những ai tìm kiếm sự yên bình và tĩnh lặng.",
+    "finalMessage": "Dù đó là một bãi biển yên tĩnh ở Indonesia, một ngôi làng trên núi ở Peru, hay một nơi ẩn mình trong vùng nông thôn Scandinavia, thế giới tràn đầy những kho báu ẩn giấu đang chờ được khám phá. Du lịch có khả năng thay đổi chúng ta, và đôi khi những trải nghiệm thay đổi nhất lại xảy ra ở những nơi ít được mong đợi."
+  },
+  "footer": {
+    "aboutUs": "Về Chúng Tôi",
+    "aboutText": "Tại KGS-Tech, chúng tôi tin rằng công nghệ nên là yếu tố thúc đẩy sự thay đổi và phát triển. Với một đội ngũ chuyên gia giàu kinh nghiệm, chúng tôi kết hợp kiến thức và sự sáng tạo để phát triển những giải pháp sáng tạo giúp thúc đẩy thành công và gia tăng giá trị. Đội ngũ của chúng tôi cam kết mang lại kết quả chất lượng và xây dựng các mối quan hệ đối tác lâu dài dựa trên sự tin tưởng, trung thực và phát triển lẫn nhau.",
+    "aboutKGS": "Về Tập Đoàn KGS-Tech",
+    "products": "Sản Phẩm",
+    "services": "Dịch Vụ",
+    "careers": "Cơ Hội Nghề Nghiệp",
+    "contactUs": "Liên Hệ",
+    "email": "Email",
+    "phone": "Số Điện Thoại",
+    "address": "Địa Chỉ"
+  }
 }

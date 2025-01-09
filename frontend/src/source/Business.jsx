@@ -36,10 +36,10 @@ const Business = () => {
                     <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white px-6 sm:px-12 lg:px-72">
                         <div className="text-center sm:text-left max-w-xl mx-auto sm:mx-0">
                             <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold mb-4 text-shadow">
-                                KGS-Tech Business
+                                {t("business.heroTitle")}
                             </h1>
                             <p className="text-base sm:text-lg md:text-xl text-shadow">
-                            KGS-Tech is a leading innovator in technology and digital transformation. Our mission is to provide cutting-edge solutions that empower businesses to thrive in an ever-evolving technological landscape. We focus on delivering exceptional value through innovation, efficiency, and strategic insight.
+                                {t("business.heroDescription")}
                             </p>
                         </div>
                     </div>
@@ -48,30 +48,30 @@ const Business = () => {
                 {/* Company's Partnership Section */}
                 <div className="text-left max-w-4xl mx-auto px-6 sm:px-12 md:px-20 mt-12">
                     <h1 className="text-4xl md:text-6xl font-extrabold mb-6 text-gray-900 text-center">
-                        Company's Partnership
+                        {t("business.partnershipTitle")}
                     </h1>
 
                     {/* Key Aspects Table */}
                     <div className="bg-gray-50 p-6 rounded-lg shadow-lg mb-8">
                         <p className="text-lg md:text-xl text-gray-800 mb-6">
-                            <span className="font-semibold text-brown-600">Partnerships</span> are vital to our success, allowing for mutual growth and innovation.
+                            <span className="font-semibold text-brown-600">{t("business.partnerships")}</span> {t("business.partnershipDescription")}
                         </p>
 
                         <table className="min-w-full text-left bg-white shadow-md rounded-lg overflow-hidden">
                             <thead>
                                 <tr className="border-b border-gray-300">
-                                    <th className="px-6 py-3 text-sm font-medium text-gray-700 bg-gray-200">Key Aspect</th>
-                                    <th className="px-6 py-3 text-sm font-medium text-gray-700 bg-gray-200">Description</th>
+                                    <th className="px-6 py-3 text-sm font-medium text-gray-700 bg-gray-200">{t("business.keyAspect")}</th>
+                                    <th className="px-6 py-3 text-sm font-medium text-gray-700 bg-gray-200">{t("business.description")}</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr className="border-t border-gray-200 hover:bg-gray-100 transition-all duration-300">
-                                    <td className="px-6 py-4 text-sm text-gray-700"><strong>Shared Vision</strong></td>
-                                    <td className="px-6 py-4 text-sm text-gray-700">Long-term commitment and shared goals.</td>
+                                    <td className="px-6 py-4 text-sm text-gray-700"><strong>{t("business.sharedVision")}</strong></td>
+                                    <td className="px-6 py-4 text-sm text-gray-700">{t("business.sharedVisionDescription")}</td>
                                 </tr>
                                 <tr className="border-t border-gray-200 hover:bg-gray-100 transition-all duration-300">
-                                    <td className="px-6 py-4 text-sm text-gray-700"><strong>Innovation</strong></td>
-                                    <td className="px-6 py-4 text-sm text-gray-700">Combining expertise for creative solutions.</td>
+                                    <td className="px-6 py-4 text-sm text-gray-700"><strong>{t("business.innovation")}</strong></td>
+                                    <td className="px-6 py-4 text-sm text-gray-700">{t("business.innovationDescription")}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -94,7 +94,7 @@ const Business = () => {
                 </div>
                 <div className="text-center my-12">
                     <p className="text-lg md:text-xl font-medium text-gray-700">
-                        Ready to get started? <Link to="/" className="text-blue-600 hover:text-blue-800">Contact us today!</Link>
+                        {t("business.readyToStart")} <Link to="/" className="text-blue-600 hover:text-blue-800">{t("business.contactUs")}</Link>
                     </p>
                 </div>
 

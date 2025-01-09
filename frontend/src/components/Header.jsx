@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Select } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { MenuOutlined, CloseOutlined } from '@ant-design/icons';
@@ -9,28 +9,27 @@ const { Option } = Select;
 const Header = () => {
   const { t, i18n } = useTranslation(); // Sử dụng i18n để thay đổi ngôn ngữ
 
-  const [language, setLanguage] = useState('vi'); // Mặc định là Tiếng Việt
   const [menuOpen, setMenuOpen] = useState(false);
 
   // Hàm để thay đổi ngôn ngữ
   const handleLanguageChange = (value) => {
-    setLanguage(value); // Cập nhật trạng thái language
-    if (i18n && i18n.changeLanguage) {
-      i18n.changeLanguage(value); // Thay đổi ngôn ngữ nếu `changeLanguage` tồn tại
-    } else {
-      console.error('i18n.changeLanguage is not a function');
-    }
+    i18n.changeLanguage(value); // Thay đổi ngôn ngữ khi người dùng chọn
   };
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
+  // Set lại ngôn ngữ hiện tại khi component mount hoặc khi i18n.language thay đổi
+  useEffect(() => {
+    setMenuOpen(false); // Đóng menu khi đổi ngôn ngữ
+  }, [i18n.language]);
+
   return (
     <header className="sticky-header flex justify-between items-center p-4 bg-black text-white w-full max-w-full overflow-x-hidden">
       <div className="hover:text-gray-400 flex items-center ml-12 mr-4">
         {/* LOGO */}
-        <div><Link to="/">{t('LOGO')}</Link></div>
+        <div><Link to="/">{t('header.LOGO')}</Link></div>
       </div>
 
       <div className="md:hidden flex items-center">
@@ -42,10 +41,10 @@ const Header = () => {
       {/* Menu chính */}
       <div className={`flex items-center gap-8 w-full justify-end ${menuOpen ? 'block' : 'hidden'} md:flex`}>
         <ul className="flex gap-8 md:flex-row flex-col justify-end">
-          <li className="hover:text-gray-400"><Link to="/">{t('home')}</Link></li>
-          <li className="hover:text-gray-400"><Link to="/company">{t('company')}</Link></li>
-          <li className="hover:text-gray-400"><Link to="/business">{t('business')}</Link></li>
-          <li className="hover:text-gray-400"><Link to="/blog">{t('blog')}</Link></li>
+          <li className="hover:text-gray-400"><Link to="/">{t('header.home')}</Link></li>
+          <li className="hover:text-gray-400"><Link to="/company">{t('header.company')}</Link></li>
+          <li className="hover:text-gray-400"><Link to="/business">{t('header.business')}</Link></li>
+          <li className="hover:text-gray-400"><Link to="/blog">{t('header.blog')}</Link></li>
         </ul>
 
         {/* Dropdown Select for Language */}
@@ -55,13 +54,13 @@ const Header = () => {
             defaultValue="lo"
             className="text-sm sm:text-base"
           >
-            <Option value="lo">{t('login')}</Option>
-            <Option value="si">{t('signup')}</Option>
+            <Option value="lo">{t('header.login')}</Option>
+            <Option value="si">{t('header.signup')}</Option>
           </Select>
 
           {/* Dropdown ngôn ngữ */}
           <Select
-            value={language} // Truyền giá trị của ngôn ngữ hiện tại
+            value={i18n.language} // Sử dụng giá trị ngôn ngữ hiện tại từ i18n
             onChange={handleLanguageChange} // Gọi hàm khi thay đổi ngôn ngữ
             className="bg-gray-700 text-white text-sm sm:text-base"
           >

@@ -1,19 +1,226 @@
 {
-  "home": "Home",
-  "company": "Company",
-  "business": "Business",
-  "blog": "Blog",
-  "homepage_title": "KGS-Tech Homepage",
-  "homepage_description": "KGS-Tech's Homepage is the digital hub for showcasing the company's AI-driven software, cloud services, and innovative tech solutions.",
-  "headlines": "KGS-Tech Headlines",
-  "headlines_description": "is making strides with AI-powered software...",
-  "mission_and_vision": "Mission and Vision",
-  "mission_1": "Creating innovative solutions that drive business growth and efficiency.",
-  "mission_2": "Building eco-friendly technology for a sustainable future.",
-  "mission_3": "Empowering businesses worldwide through strong partnerships.",
-  "latest_blogs": "Latest Blogs",
-  "blog_1": "Dive into how AI is transforming business operations...",
-  "blog_2": "Learn about the benefits of scalable cloud services...",
-  "blog_3": "Discover how KGS-Tech is integrating sustainability into tech innovations."
+  "home": {
+    "homepage_title": "KGS-Tech Company's Homepage",
+    "homepage_description": "KGS-Tech's Homepage is the digital hub for showcasing the company's AI-driven software, cloud services, and innovative tech solutions.",
+    "headlines": "KGS-Tech Headlines",
+    "headlines_description": "is making strides with AI-powered software launches to automate tasks, new global partnerships expanding its reach, successful deployment of scalable cloud services, and a strong commitment to sustainability. The company has also earned industry recognition for its innovative solutions.",
+    "company_name": "KGS-Tech",
+    "mission_and_vision": "Mission and Vision",
+    "latest_blogs": "Latest Blogs",
+    "blog_1": "Dive into how AI is transforming business operations and customer interactions.",
+    "blog_2": "Learn about the benefits of scalable cloud services and their impact on growth.",
+    "blog_3": "Discover how KGS-Tech is integrating sustainability into tech innovations.",
+    "mission_1": "Creating innovative solutions that drive business growth and efficiency.",
+    "mission_2": "Building eco-friendly technology for a sustainable future.",
+    "mission_3": "Empowering businesses worldwide through strong partnerships.",
+    "news_1": "Groundbreaking AI and blockchain technologies are streamlining operations and boosting efficiency. Businesses must adapt to stay competitive in this fast-evolving landscape.",
+    "news_2": "Eco-friendly startups are tackling climate challenges with innovations like biodegradable packaging and affordable solar energy, paving the way for a greener future.",
+    "news_3": "Strategic collaborations across industries are unlocking new markets and innovations, showcasing the power of teamwork in a connected world.",
+    "homepage_ReadMore": "Read More"
+  },
+  "featured_projects": {
+    "title": "Featured Projects",
+    "project1": "Hospital 1",
+    "project2": "Hospital 2",
+    "project3": "Hospital 3",
+    "more_projects": "More Projects"
+  },
+  "header": {
+    "LOGO": "KGS-Tech",
+    "home": "Home",
+    "company": "Company",
+    "business": "Business",
+    "blog": "Blog",
+    "login": "Login",
+    "signup": "Signup"
+  },
+  "company": {
+    "title": "KGS-Tech Company",
+    "description": "KGS-Tech is a technology company offering innovative solutions to businesses worldwide. We help organizations optimize operations, improve customer experiences, and drive growth using the latest technological advancements.",
+    "core_values": {
+      "title": "Core Values",
+      "paragraph1": "We uphold the highest standards of honesty and ethics in all that we do. Our actions reflect our commitment to being trustworthy and transparent.",
+      "paragraph2": "Embracing change and fostering creativity, we constantly strive to find new and better ways to deliver value to our stakeholders."
+    },
+    "leaders": "KGS-Tech Leaders"
+  },
+  "milestoneTracker": {
+    "title": "Milestone Tracker"
+  },
+  "milestones": {
+    "start": {
+      "title": "Start",
+      "description": "Journey begins",
+      "date": "Jan 2023"
+    },
+    "achievement1": {
+      "title": "Achievement 1",
+      "description": "Completed first task",
+      "date": "Mar 2023"
+    },
+    "achievement2": {
+      "title": "Achievement 2",
+      "description": "Reached 100 points",
+      "date": "Jun 2023"
+    },
+    "final": {
+      "title": "Final Milestone",
+      "description": "Completed the journey",
+      "date": "Dec 2023"
+    }
+  },
+  "gallery": {
+    "chro": "Chief Human Resources Officer (CHRO)",
+    "vp": "Vice President (VP)",
+    "avp": "Assistant Vice President (AVP)",
+    "seniorManager": "Senior Manager",
+    "manager": "Manager",
+    "productManager": "Product Manager"
+  },
+  "business": {
+    "heroTitle": "KGS-Tech Business",
+    "heroDescription": "KGS-Tech is a leading innovator in technology and digital transformation. Our mission is to provide cutting-edge solutions that empower businesses to thrive in an ever-evolving technological landscape. We focus on delivering exceptional value through innovation, efficiency, and strategic insight.",
+    "partnershipTitle": "Company's Partnership",
+    "partnerships": "Partnerships",
+    "partnershipDescription": "are vital to our success, allowing for mutual growth and innovation.",
+    "keyAspect": "Key Aspect",
+    "description": "Description",
+    "sharedVision": "Shared Vision",
+    "sharedVisionDescription": "Long-term commitment and shared goals.",
+    "innovation": "Innovation",
+    "innovationDescription": "Combining expertise for creative solutions.",
+    "readyToStart": "Ready to get started?",
+    "contactUs": "Contact us today!"
+  },
+  "ourProjects": {
+    "title": "Our Projects",
+    "project1": {
+      "title": "Project 1",
+      "description": "Details 1"
+    },
+    "project2": {
+      "title": "Project 2",
+      "description": "Details 2"
+    },
+    "project3": {
+      "title": "Project 3",
+      "description": "Details 3"
+    }
+  },
+  "benefits": {
+    "title": "Your Benefits When Joining Us",
+    "careerGrowth": {
+      "title": "Career Growth & Development",
+      "description": "We offer continuous learning opportunities and career advancement programs to help you thrive in your professional journey."
+    },
+    "workLifeBalance": {
+      "title": "Work-Life Balance",
+      "description": "Enjoy flexible working hours, remote work options, and generous time-off policies to maintain a healthy work-life balance."
+    },
+    "salaryCompensation": {
+      "title": "Competitive Salary & Compensation",
+      "description": "Receive a competitive salary with performance-based bonuses and comprehensive benefits that support your financial well-being."
+    }
+  },
+  "contactUs": {
+    "title": "Join us Now",
+    "openHours": {
+      "title": "Open Hours",
+      "mondayFriday": "Monday - Friday: 8:00 AM - 5:00 PM",
+      "saturday": "Saturday: Closed",
+      "sunday": "Sunday: Closed"
+    },
+    "contactInfo": {
+      "title": "Contact Info",
+      "phone": "Phone: +1 (555) 123-4567",
+      "address": "Address: 40 So 16 Duong An Phu, Quan Thu Duc"
+    },
+    "getInTouch": "Get in Touch",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "submit": "Submit"
+    }
+  },
+  "blog": {
+    "title": "Blog Posts",
+    "post1Title": "Post 1",
+    "post1Description": "This is a description of the first post.",
+    "post2Title": "Post 2",
+    "post2Description": "This is a description of the second post.",
+    "post3Title": "Post 3",
+    "post3Description": "This is a description of the third post.",
+    "post4Title": "Post 4",
+    "post4Description": "This is a description of the fourth post.",
+    "post5Title": "Post 5",
+    "post5Description": "This is a description of the fifth post.",
+    "post6Title": "Post 6",
+    "post6Description": "This is a description of the sixth post.",
+    "post7Title": "Post 7",
+    "post7Description": "This is a description of the seventh post.",
+    "post8Title": "Post 8",
+    "post8Description": "This is a description of the eighth post.",
+    "post9Title": "Post 9",
+    "post9Description": "This is a description of the ninth post.",
+    "post10Title": "Post 10",
+    "post10Description": "This is a description of the tenth post.",
+    "2025-01-01": "January 1, 2025",
+    "2025-01-02": "January 2, 2025",
+    "2025-01-03": "January 3, 2025",
+    "2025-01-04": "January 4, 2025",
+    "2025-01-05": "January 5, 2025",
+    "2025-01-06": "January 6, 2025",
+    "2025-01-07": "January 7, 2025",
+    "2025-01-08": "January 8, 2025",
+    "2025-01-09": "January 9, 2025",
+    "2025-01-10": "January 10, 2025",
+    "readMore": "Read More",
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page",
+    "of": "of",
+    "heroTitle": "KGS-Tech Blogs",
+    "heroDescription": "Welcome to the official blog of KGS-Tech Company, where innovation meets excellence. In this space, we share our insights, ideas, and the latest updates about the tech industry, our company, and how we’re shaping the future of technology.",
+    "introTitle": "Welcome to KGS-Tech Company's Blog",
+    "introDescription": "The world of technology moves fast, and it’s crucial for both businesses and individuals to keep up. By sharing our experiences, insights, and updates on this platform, we hope to create a space where our readers can learn, grow, and stay informed about the latest developments in tech. We believe in the power of collaboration and knowledge sharing, and this blog is just one of the ways we foster that spirit.",
+    "exploreArticles": "Explore More Articles"
+  },
+  "blog1": {
+    "welcomeTitle": "Welcome to KGS-Tech Company's Blog",
+    "by": "By",
+    "author": "John Doe",
+    "traveling": "Traveling",
+    "travelingDescription": "is one of the most enriching experiences one can have. It's more than just visiting new places; it's about immersing yourself in different cultures, connecting with people, and creating memories that will last a lifetime. But not all adventures need to involve crowded tourist destinations. There are countless hidden gems across the world that are waiting to be explored by those willing to go off the beaten path.",
+    "hiddenGemsTitle": "The Hidden Gems of Travel",
+    "hiddenGemsDescription": "One of the most beautiful aspects of travel is discovering places that aren't typically featured in guidebooks. From secluded beaches in Southeast Asia to serene mountain villages in Europe, there are countless destinations where you can experience true peace and tranquility, far away from the crowds.",
+    "offBeatenPathTitle": "Off-the-Beaten-Path Adventures",
+    "philippines": "Philippines",
+    "philippinesDescription": "A remote island known to only a handful of locals, offering pristine beaches, crystal-clear waters, and lush landscapes.",
+    "swissAlps": "Swiss Alps",
+    "swissAlpsDescription": "A hidden village accessible only by hiking through beautiful forests, offering breathtaking views and a warm local community.",
+    "whyGemsMatterTitle": "Why Hidden Gems Matter",
+    "whyGemsMatterDescription": "While these hidden gems might require a bit more effort to find, they offer something truly special: a chance to experience the world in a more intimate and meaningful way. So next time you plan your travels, consider looking beyond the popular destinations and explore the lesser-known spots that might surprise you.",
+    "topDestinationsTitle": "Top Destinations to Explore",
+    "indonesia": "Indonesia",
+    "indonesiaDescription": "Quiet beaches with crystal-clear waters perfect for relaxation and exploration.",
+    "peru": "Peru",
+    "peruDescription": "Remote mountain villages offering ancient culture and stunning landscapes.",
+    "scandinavia": "Scandinavia",
+    "scandinaviaDescription": "Off-grid escapes surrounded by nature, ideal for those seeking peace and solitude.",
+    "finalMessage": "Whether it's a quiet beach in Indonesia, a remote village in the mountains of Peru, or an off-grid escape in the Scandinavian countryside, the world is full of hidden treasures waiting to be discovered. Travel has the power to transform us, and sometimes the most transformative experiences happen in the places least expected."
+  },
+  "footer": {
+    "aboutUs": "About Us",
+    "aboutText": "At KGS-Tech, we believe that technology should be an enabler of change and growth. With a team of highly skilled professionals, we combine expertise with creativity to develop innovative solutions that drive success and add value. Our team is committed to delivering quality results and building long-term partnerships based on trust, integrity, and mutual growth.",
+    "aboutKGS": "About KGS-Tech Groups",
+    "products": "Products",
+    "services": "Services",
+    "careers": "Careers",
+    "contactUs": "Contact Us",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "allRightsReserved": "All Rights Reserved"
+  }
 }
-  
