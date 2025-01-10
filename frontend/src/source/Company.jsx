@@ -8,6 +8,10 @@ import MilestoneTracker from '../components/MilestoneTracker';
 import CenteredImageGallery from '../components/CenteredImageGallery';
 import { Link, useLocation } from "react-router-dom";
 import '../App.css';
+import StickyRightContact from '../components/StickyRightContact';
+import 'animate.css';  // Import Animate.css
+import AOS from 'aos';  // Import AOS
+import 'aos/dist/aos.css';  // Import AOS CSS
 
 const Company = () => {
     const { t } = useTranslation();
@@ -44,6 +48,10 @@ const Company = () => {
                     </div>
                 </div>
 
+                <div>
+                    <StickyRightContact/>
+                </div>
+
                 <div className="text-left max-w-full px-6 sm:px-12 md:px-20 lg:px-96 mt-12 mb-12" id="core">
                     <h1 className="text-4xl md:text-6xl font-extrabold mb-4">
                         {t('company.core_values.title')}
@@ -59,7 +67,10 @@ const Company = () => {
                 <div className="space-y-12 mb-12">
                     <TabTableComponent />
                 </div>
-                <MilestoneTracker />
+                <div className="">
+                    <MilestoneTracker />
+                </div>
+                
 
                 <div className="flex flex-col items-center justify-center p-8">
                     <h1 className="text-center text-4xl md:text-4xl font-bold mb-8 text-gray-800">

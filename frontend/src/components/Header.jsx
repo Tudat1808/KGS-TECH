@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Select } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { MenuOutlined, CloseOutlined } from '@ant-design/icons';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const { Option } = Select;
 
 const Header = () => {
   const { t, i18n } = useTranslation(); // Sử dụng i18n để thay đổi ngôn ngữ
+  const location = useLocation(); // Lấy đường dẫn hiện tại
 
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -25,6 +26,9 @@ const Header = () => {
     setMenuOpen(false); // Đóng menu khi đổi ngôn ngữ
   }, [i18n.language]);
 
+  // Hàm kiểm tra nếu đường dẫn hiện tại trùng với link của menu
+  const isActive = (path) => location.pathname === path;
+
   return (
     <header className="sticky-header flex justify-between items-center p-4 bg-black text-white w-full max-w-full overflow-x-hidden">
       <div className="hover:text-gray-400 flex items-center ml-12 mr-4">
@@ -41,10 +45,18 @@ const Header = () => {
       {/* Menu chính */}
       <div className={`flex items-center gap-8 w-full justify-end ${menuOpen ? 'block' : 'hidden'} md:flex`}>
         <ul className="flex gap-8 md:flex-row flex-col justify-end">
-          <li className="hover:text-gray-400"><Link to="/">{t('header.home')}</Link></li>
-          <li className="hover:text-gray-400"><Link to="/company">{t('header.company')}</Link></li>
-          <li className="hover:text-gray-400"><Link to="/business">{t('header.business')}</Link></li>
-          <li className="hover:text-gray-400"><Link to="/blog">{t('header.blog')}</Link></li>
+          <li className={`hover:text-gray-400 ${isActive('/') ? 'text-blue-500 font-bold' : ''}`}>
+            <Link to="/">{t('header.home')}</Link>
+          </li>
+          <li className={`hover:text-gray-400 ${isActive('/company') ? 'text-blue-500 font-bold' : ''}`}>
+            <Link to="/company">{t('header.company')}</Link>
+          </li>
+          <li className={`hover:text-gray-400 ${isActive('/business') ? 'text-blue-500 font-bold' : ''}`}>
+            <Link to="/business">{t('header.business')}</Link>
+          </li>
+          <li className={`hover:text-gray-400 ${isActive('/blog') ? 'text-blue-500 font-bold' : ''}`}>
+            <Link to="/blog">{t('header.blog')}</Link>
+          </li>
         </ul>
 
         {/* Dropdown Select for Language */}

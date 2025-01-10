@@ -8,6 +8,7 @@ import Benefits from '../components/Benefits';
 import ContactUs from '../components/ContactUs';
 import { Link, useLocation } from "react-router-dom";
 import '../App.css';
+import StickyRightContact from '../components/StickyRightContact';
 
 const Business = () => {
     const { t } = useTranslation();
@@ -43,6 +44,10 @@ const Business = () => {
                             </p>
                         </div>
                     </div>
+                </div>
+
+                <div>
+                    <StickyRightContact/>
                 </div>
 
                 {/* Company's Partnership Section */}

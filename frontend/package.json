@@ -12,7 +12,9 @@
   "dependencies": {
     "@ant-design/icons": "^5.5.2",
     "@reduxjs/toolkit": "^2.5.0",
+    "animate.css": "^4.1.1",
     "antd": "^5.22.7",
+    "aos": "^2.3.4",
     "autoprefixer": "^10.4.0",
     "axios": "^1.7.9",
     "i18next": "^24.2.0",

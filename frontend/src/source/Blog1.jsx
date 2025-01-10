@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ScrollToTopButton from '../components/ScrollToTopButton';
 import '../App.css';
+import StickyRightContact from '../components/StickyRightContact';
 
 const Blog1 = () => {
   const { t } = useTranslation();
@@ -19,6 +20,9 @@ const Blog1 = () => {
           </h1>
           <div className="text-sm text-gray-600 mb-4">
             <span>{t('blog1.by')} {author}</span> | <span>{currentDate}</span>
+          </div>
+          <div>
+            <StickyRightContact/>
           </div>
           {/* Thêm ảnh ở đây */}
           <img 

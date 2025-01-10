@@ -212,7 +212,7 @@
   },
   "footer": {
     "aboutUs": "About Us",
-    "aboutText": "At KGS-Tech, we believe that technology should be an enabler of change and growth. With a team of highly skilled professionals, we combine expertise with creativity to develop innovative solutions that drive success and add value. Our team is committed to delivering quality results and building long-term partnerships based on trust, integrity, and mutual growth.",
+    "aboutText": "At KGS-Tech, we see technology as a catalyst for growth and progress, driving success in today’s digital world. Our mission is to leverage innovation to help businesses achieve impactful, lasting results. With a skilled team and a customer-first mindset, we craft tailored solutions that address each client’s unique goals and challenges, empowering them to thrive in a dynamic landscape.",
     "aboutKGS": "About KGS-Tech Groups",
     "products": "Products",
     "services": "Services",
@@ -220,7 +220,38 @@
     "contactUs": "Contact Us",
     "email": "Email",
     "phone": "Phone",
-    "address": "Address",
-    "allRightsReserved": "All Rights Reserved"
-  }
+    "allRightsReserved": "All Rights Reserved",
+    "news": "News",
+    "sysdev": "System Development",
+    "offshore": "Offshore",
+    "foodmanagement": "Food and management",
+    "realestatebrokerage": "Real estate brokerage",
+    "recruitment": "High-level recruitment"
+  },
+  "tabs": [
+    {
+      "title": "Requirement Analysis",
+      "content": [
+        "Define the goals and scope of the system.",
+        "Collect requirements from stakeholders.",
+        "Analyze and document functional and non-functional requirements."
+      ]
+    },
+    {
+      "title": "System Design",
+      "content": [
+        "Plan the overall architecture of the system.",
+        "Design the database and data structures.",
+        "Choose appropriate technologies and tools."
+      ]
+    },
+    {
+      "title": "Development and Testing",
+      "content": [
+        "Develop and integrate system modules.",
+        "Write and execute test cases.",
+        "Optimize performance and fix bugs."
+      ]
+    }
+  ]
 }

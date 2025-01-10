@@ -133,7 +133,7 @@
     "contactInfo": {
       "title": "Thông Tin Liên Hệ",
       "phone": "Điện thoại: +1 (555) 123-4567",
-      "address": "Địa chỉ: 40 So 16 Đường An Phú, Quận Thủ Đức"
+      "address": "Địa chỉ: 40 Số 16 Đường An Phú, Quận Thủ Đức"
     },
     "getInTouch": "Liên Hệ Với Chúng Tôi",
     "form": {
@@ -212,7 +212,7 @@
   },
   "footer": {
     "aboutUs": "Về Chúng Tôi",
-    "aboutText": "Tại KGS-Tech, chúng tôi tin rằng công nghệ nên là yếu tố thúc đẩy sự thay đổi và phát triển. Với một đội ngũ chuyên gia giàu kinh nghiệm, chúng tôi kết hợp kiến thức và sự sáng tạo để phát triển những giải pháp sáng tạo giúp thúc đẩy thành công và gia tăng giá trị. Đội ngũ của chúng tôi cam kết mang lại kết quả chất lượng và xây dựng các mối quan hệ đối tác lâu dài dựa trên sự tin tưởng, trung thực và phát triển lẫn nhau.",
+    "aboutText": "Tại KGS-Tech, chúng tôi tin rằng công nghệ là yếu tố thúc đẩy sự thay đổi và tăng trưởng trong thế giới số hóa, cam kết khai thác đổi mới để nâng cao hiệu quả và tạo ra kết quả bền vững. Với đội ngũ chuyên gia giàu kinh nghiệm, chúng tôi kết hợp chuyên môn kỹ thuật và tư duy lấy khách hàng làm trung tâm để phát triển các giải pháp phù hợp.",
     "aboutKGS": "Về Tập Đoàn KGS-Tech",
     "products": "Sản Phẩm",
     "services": "Dịch Vụ",
@@ -220,6 +220,37 @@
     "contactUs": "Liên Hệ",
     "email": "Email",
     "phone": "Số Điện Thoại",
-    "address": "Địa Chỉ"
-  }
+    "news": "Tin Tức",
+    "sysdev": "Phát triển hệ thống",
+    "offshore": "Offshore",
+    "foodmanagement": "Tư vấn và quản lý thức ăn",
+    "realestatebrokerage": "Môi giới bất động sản",
+    "recruitment": "Tuyển dụng cấp cao"
+  },
+  "tabs": [
+    {
+      "title": "Phân tích Yêu cầu",
+      "content": [
+        "Xác định mục tiêu và phạm vi của hệ thống.",
+        "Thu thập yêu cầu từ các bên liên quan.",
+        "Phân tích và tài liệu hóa các yêu cầu chức năng và phi chức năng."
+      ]
+    },
+    {
+      "title": "Thiết kế Hệ thống",
+      "content": [
+        "Lên kế hoạch kiến trúc tổng thể cho hệ thống.",
+        "Thiết kế cơ sở dữ liệu và cấu trúc dữ liệu.",
+        "Lựa chọn công nghệ và công cụ phù hợp."
+      ]
+    },
+    {
+      "title": "Phát triển và Kiểm thử",
+      "content": [
+        "Lập trình và tích hợp các module của hệ thống.",
+        "Viết và thực hiện các trường hợp kiểm thử.",
+        "Tối ưu hóa hiệu năng và sửa lỗi phát sinh."
+      ]
+    }
+  ]
 }

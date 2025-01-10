@@ -1,16 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Slider from "react-slick";
-import { FaNewspaper } from 'react-icons/fa';
-import { Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ScrollToTopButton from '../components/ScrollToTopButton';
 import FeaturedProjects from '../components/FeaturedProjects'; // Import FeaturedProjects
 import '../App.css';
+import StickyRightContact from '../components/StickyRightContact';
+import 'animate.css';  // Import Animate.css
+import AOS from 'aos';  // Import AOS
+import 'aos/dist/aos.css';  // Import AOS CSS
+import LatestBlogs from '../components/LatestBlogs';
+import MissionVision from "../components/MissionVision";
 
 const Home = () => {
   const { t } = useTranslation(); // Hook để lấy hàm t() từ i18next
+
+  useEffect(() => {
+    // Khởi tạo AOS
+    AOS.init({
+      offset: 200, // Độ lệch để kích hoạt hiệu ứng khi cuộn gần đến
+      delay: 0,
+      duration: 1000,
+      easing: 'ease',
+      once: true, // Chạy chỉ một lần
+    });
+  }, []);
 
   const imagesAndContent = [
     {
@@ -26,6 +41,7 @@ const Home = () => {
       content: t('home.mission_3')
     }
   ];
+
   const imagesNews = [
     {
       image: "https://emmareed.net/wp-content/uploads/2017/10/blog-2355684_1920.jpg",
@@ -43,7 +59,6 @@ const Home = () => {
       link: "/news/3"  // Đường dẫn riêng cho bài viết
     }
   ];
-  
 
   const settings = { 
     dots: false,
@@ -82,8 +97,12 @@ const Home = () => {
   return (
     <>
       <Header />
+      <div>
+          <StickyRightContact />
+      </div>
       <div className="relative w-full">
         {/* Full width image background */}
+        
         <div className="relative w-full h-[50vh]">
           <img
             src="https://i.gifer.com/J4o.gif"
@@ -92,10 +111,10 @@ const Home = () => {
           />
           <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 text-white">
             <div className="text-center max-w-xl">
-              <h1 className="text-4xl md:text-6xl font-extrabold mb-4">
+              <h1 className="text-4xl md:text-6xl font-extrabold mb-4 animate__animated animate__fadeIn">
                 {t('home.homepage_title')}
               </h1>
-              <p className="text-lg md:text-xl">
+              <p className="text-lg md:text-xl animate__animated animate__fadeIn animate__delay-1s">
                 {t('home.homepage_description')}
               </p>
             </div>
@@ -109,93 +128,32 @@ const Home = () => {
             <img
               src="https://marketplace.canva.com/EAGBcATYJ7Y/1/0/1600w/canva-white-colorful-illustrative-mind-map-brainstorm-oy01T9imIrQ.jpg" // Thay URL hình ảnh của bạn
               alt="Headline Image"
-              className="h-[50vh] object-contain mx-auto" // Điều chỉnh kích thước ảnh và căn giữa
+              className="h-[50vh] object-contain mx-auto animate__animated animate__fadeIn"
             />
 
             {/* Text Section */}
-            <div className="text-left"> {/* Căn chữ về bên trái */}
-              <h1 className="text-3xl md:text-5xl font-extrabold text-gradient mb-6">
+            <div className="text-left">
+              <h1 className="text-3xl md:text-5xl font-extrabold text-gradient mb-6 animate__animated animate__fadeIn animate__delay-1s">
                 {t('home.headlines')}
               </h1>
-              <p className="text-lg md:text-xl font-medium text-gray-800 leading-relaxed">
+              <p className="text-lg md:text-xl font-medium text-gray-800 leading-relaxed animate__animated animate__fadeIn animate__delay-1.5s">
                 <span className="text-primary">{t('home.company_name')}</span> {t('home.headlines_description')}
               </p>
             </div>
           </div>
         </div>
 
-
-
         {/* Mission and Vision Section */}
-        <div className="flex flex-col items-center justify-center bg-gray-100 p-8 space-y-6">
-          <h1 className="text-center text-4xl md:text-5xl font-bold text-gray-800 flex items-center">
-            {t('home.mission_and_vision')}
-          </h1>
-
-          <div className="w-full max-w-4xl">
-            <Slider {...settings}>
-              {imagesAndContent.map((item, index) => (
-                <div key={index} className="flex flex-col items-center">
-                  <img
-                    src={item.image}
-                    alt={`Slide ${index + 1}`}
-                    className="object-cover w-full h-[500px] rounded-lg shadow-lg transition-transform duration-500 hover:scale-105"
-                  />
-                  <div className="flex justify-center items-center mt-4 w-full px-6">
-                    <p className="text-gray-800">{item.content}</p>
-                  </div>
-                </div>
-              ))}
-            </Slider>
-          </div>
-        </div>
+          <MissionVision imagesAndContent={imagesAndContent} />
 
         {/* Featured Projects Section */}
-        <FeaturedProjects />
+        <FeaturedProjects/>
 
         {/* Latest Blogs Section */}
-        <div className="flex flex-col items-center p-8 space-y-6">
-          <div className="flex items-center justify-center mb-6 space-x-3">
-            <FaNewspaper size={30} className="text-gray-800" />
-            <h2 className="text-3xl font-semibold text-gray-800">{t('home.latest_blogs')}</h2>
-          </div>
-
-          <div className="flex flex-col lg:flex-row lg:space-x-8 lg:space-y-0 space-y-8 w-full px-4 lg:px-64">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8">
-              {imagesNews.map((item, index) => (
-                <div 
-                  key={index} 
-                  className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-                >
-                  {/* Image Section */}
-                  <img
-                    src={item.image}
-                    alt={`News ${index + 1}`}
-                    className="object-cover w-full h-[300px]"
-                  />
-
-                  {/* Content Section */}
-                  <div className="p-6 flex flex-col space-y-4">
-                    <p className="text-gray-600 text-justify">
-                      {item.content}
-                    </p>
-                    <div className="text-center mt-4">
-                      <Link to={item.link}>
-                        <button className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
-                          {t('home.homepage_ReadMore')}
-                        </button>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <ScrollToTopButton />
+        <LatestBlogs imagesNews={imagesNews} />
         <Footer />
       </div>
+      <ScrollToTopButton />
     </>
   );
 };

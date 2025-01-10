@@ -6,6 +6,7 @@ import BlogComponents from '../components/BlogComponents';
 import { Link, useLocation } from "react-router-dom";
 import React, { useEffect } from 'react';
 import '../App.css';
+import StickyRightContact from '../components/StickyRightContact';
 
 const Blog = () => {
     const { t } = useTranslation();
@@ -41,6 +42,10 @@ const Blog = () => {
                 </p>
               </div>
             </div>
+          </div>
+
+          <div>
+            <StickyRightContact/>
           </div>
 
           {/* Blog Introduction */}
