@@ -4,9 +4,25 @@ import Footer from '../components/Footer';
 import ScrollToTopButton from '../components/ScrollToTopButton';
 import '../App.css';
 import StickyRightContact from '../components/StickyRightContact';
+import React, { useEffect, useState } from 'react';
+import LoadingPage from '../components/LoadingPage'; // Make sure it's imported
 
 const Blog1 = () => {
   const { t } = useTranslation();
+  const [loading, setLoading] = useState(true); // Initialize loading state to true
+
+  useEffect(() => {
+    // Simulate a loading phase or tie this logic to actual data fetching
+    const timer = setTimeout(() => {
+      setLoading(false); // Set loading to false after 3 seconds
+    }, 1500); // Adjust time as needed
+
+    return () => clearTimeout(timer); // Cleanup the timer
+  }, []);
+
+  if (loading) {
+    return <LoadingPage />; // Display the loading page while loading is true
+  }
   const currentDate = new Date().toLocaleDateString(); // Để lấy ngày hiện tại
   const author = t('blog1.author'); // Sử dụng i18n cho tác giả
   

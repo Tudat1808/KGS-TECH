@@ -4,14 +4,17 @@ import Footer from '../components/Footer';
 import ScrollToTopButton from '../components/ScrollToTopButton';
 import BlogComponents from '../components/BlogComponents';
 import { Link, useLocation } from "react-router-dom";
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../App.css';
 import StickyRightContact from '../components/StickyRightContact';
+import Animation from '../components/Animation';
+import LoadingPage from '../components/LoadingPage'; // Make sure this is correctly imported
 
 const Blog = () => {
     const { t } = useTranslation();
     const location = useLocation();
-    
+    const [loading, setLoading] = useState(true); // Initialize the loading state to true
+
     useEffect(() => {
         if (location.hash) {
           const element = document.getElementById(location.hash.substring(1));
@@ -19,7 +22,18 @@ const Blog = () => {
             element.scrollIntoView({ behavior: 'smooth' });
           }
         }
-      }, [location]);
+        
+        // Simulate a loading process, for example, fetching data or waiting for assets to load
+        const timer = setTimeout(() => {
+            setLoading(false); // Set loading to false after 3 seconds or after your data is fetched
+        }, 1500);
+
+        return () => clearTimeout(timer); // Cleanup the timer
+    }, [location]);
+
+    if (loading) {
+        return <LoadingPage />; // Display the loading page while loading is true
+    }
     
     return (
       <>
@@ -33,6 +47,7 @@ const Blog = () => {
               className="object-cover w-full h-full"
             />
             <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white px-6 sm:px-12 lg:px-72">
+            <Animation aosEffect="fade-in" aosDuration={1500}>
               <div className="text-center sm:text-left max-w-xl mx-auto sm:mx-0">
                 <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold mb-4 text-shadow-lg">
                   {t("blog.heroTitle")}
@@ -41,6 +56,7 @@ const Blog = () => {
                   {t("blog.heroDescription")}
                 </p>
               </div>
+            </Animation>
             </div>
           </div>
 
@@ -65,9 +81,11 @@ const Blog = () => {
           </div>
 
           {/* Blog Components */}
+          <Animation aosEffect="zoom-in" aosDuration={1500}>
           <div id="Blogs" className="my-12">
             <BlogComponents />
           </div>
+          </Animation>
 
           {/* Scroll to Top Button */}
           <ScrollToTopButton />

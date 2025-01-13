@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from "react-router-dom";
-import Animation from '../components/Animation';
 
 const FeaturedProjects = () => {
   const { t } = useTranslation(); // Hook để lấy hàm t() từ i18next
@@ -22,9 +21,8 @@ const FeaturedProjects = () => {
   ];
 
   return (
-    <><Animation aosEffect="fade-up" aosDuration={1500}>
-      <div className="bg-gray-800 text-white py-16" data-aos="fade-up">
-        <h2 className="text-center text-4xl font-bold mb-12">{t('featured_projects.title')}</h2>
+      <div className="text-white py-16" data-aos="fade-up">
+        <h2 className="text-black text-center text-4xl font-bold mb-12">{t('featured_projects.title')}</h2>
         <div className="flex flex-wrap justify-center gap-8">
           {projects.map((project, index) => (
               <div
@@ -40,14 +38,12 @@ const FeaturedProjects = () => {
         </div>
         <div className="text-center mt-8">
           <Link to="/business">
-              <button className="px-6 py-2 bg-white text-black font-semibold rounded-lg hover:bg-gray-300 transition">
+              <button className="px-6 py-2 bg-gray-100 text-black font-semibold rounded-lg hover:bg-gray-300 transition">
               {t('featured_projects.more_projects')}
               </button>
           </Link>
         </div>
       </div>
-    </Animation>
-    </>
   );
 };
 

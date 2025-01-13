@@ -37,7 +37,7 @@ const MilestoneProgress = () => {
   ];
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-800 py-8">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100 py-8">
       <div className="bg-white p-8 rounded-lg shadow-xl w-full max-w-4xl">
         <h2 className="text-3xl text-center font-semibold mb-8">{t('milestoneTracker.title')}</h2>
         <div className="relative">

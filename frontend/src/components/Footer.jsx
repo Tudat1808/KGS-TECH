@@ -7,7 +7,7 @@ const Footer = () => {
   const { t } = useTranslation();
 
   return (
-    <footer className="bg-gray-800 text-gray-300 py-8 w-full overflow-hidden" id="footer">
+    <footer className="bg-gray-800 text-gray-300 py-6 w-full overflow-hidden" id="footer">
       <div className="max-w-screen-xl mx-auto px-4 sm:px-4 grid grid-cols-1 md:grid-cols-4 gap-16">
         <div className="flex flex-col space-y-4 items-center mt-24">
           <img src="https://i.imgur.com/NUSlL3a.png" alt="KGS-Tech Logo" className="h-48 mx-auto" />

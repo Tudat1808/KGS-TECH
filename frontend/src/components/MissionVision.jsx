@@ -1,17 +1,16 @@
 import React from 'react';
 import Slider from 'react-slick';
 import { useTranslation } from 'react-i18next';
-import Animation from '../components/Animation';
 
 // Thêm các cài đặt cho Slider (nếu có)
 const settings = {
     dots: false,
     infinite: true,
-    speed: 3000,
+    speed: 1500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 2500,
     arrows: false,
     pauseOnHover: true,  // Dừng autoplay khi hover chuột
     responsive: [
@@ -46,7 +45,7 @@ const MissionVision = ({ imagesAndContent }) => {
   if (!imagesAndContent || imagesAndContent.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center bg-gray-100 p-8 space-y-6">
-        <h1 className="text-center text-4xl md:text-5xl font-bold text-gray-800">
+        <h1 className="text-center text-4xl md:text-4xl font-bold text-black">
           {t('home.mission_and_vision')}
         </h1>
         <p className="text-gray-600">{t('home.noContentAvailable')}</p>
@@ -55,9 +54,8 @@ const MissionVision = ({ imagesAndContent }) => {
   }
 
   return (
-    <><Animation aosEffect="fade-up" aosDuration={1500}>
         <div className="flex flex-col items-center justify-center bg-gray-100 p-8 space-y-6">
-          <h1 className="text-center text-4xl md:text-5xl font-bold text-gray-800 flex items-center">
+          <h1 className="text-center text-4xl md:text-4xl font-bold text-black flex items-center">
             {t('home.mission_and_vision')}
           </h1>
 
@@ -68,7 +66,7 @@ const MissionVision = ({ imagesAndContent }) => {
                   <img
                     src={item.image}
                     alt={`Slide ${index + 1}`}
-                    className="object-cover w-full h-[500px] rounded-lg shadow-lg transition-transform duration-500 hover:scale-105"
+                    className="object-cover w-full h-[500px] shadow-lg transition-transform duration-500 hover:scale-105"
                   />
                   <div className="flex justify-center items-center mt-4 w-full px-6">
                     <p className="text-gray-800">{item.content}</p>
@@ -78,8 +76,6 @@ const MissionVision = ({ imagesAndContent }) => {
             </Slider>
           </div>
         </div>
-    </Animation>
-    </>
   );
 };
 

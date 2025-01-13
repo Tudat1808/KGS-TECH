@@ -7,44 +7,76 @@ import { Link, useLocation } from "react-router-dom";
 const { Option } = Select;
 
 const Header = () => {
-  const { t, i18n } = useTranslation(); // Sử dụng i18n để thay đổi ngôn ngữ
-  const location = useLocation(); // Lấy đường dẫn hiện tại
-
+  const { t, i18n } = useTranslation();
+  const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Hàm để thay đổi ngôn ngữ
   const handleLanguageChange = (value) => {
-    i18n.changeLanguage(value); // Thay đổi ngôn ngữ khi người dùng chọn
+    i18n.changeLanguage(value);
   };
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
-  // Set lại ngôn ngữ hiện tại khi component mount hoặc khi i18n.language thay đổi
   useEffect(() => {
-    setMenuOpen(false); // Đóng menu khi đổi ngôn ngữ
+    setMenuOpen(false);
   }, [i18n.language]);
 
-  // Hàm kiểm tra nếu đường dẫn hiện tại trùng với link của menu
   const isActive = (path) => location.pathname === path;
 
   return (
-    <header className="sticky-header flex justify-between items-center p-4 bg-black text-white w-full max-w-full overflow-x-hidden">
-      <div className="hover:text-gray-400 flex items-center ml-12 mr-4">
-        {/* LOGO */}
-        <div><Link to="/">{t('header.LOGO')}</Link></div>
-      </div>
-
-      <div className="md:hidden flex items-center">
+    <header className="sticky top-0 bg-black text-white w-full p-4 flex items-center justify-between z-50">
+      {/* Mobile Menu Button */}
+      <div className="md:hidden">
         <button onClick={toggleMenu} className="text-white">
           {menuOpen ? <CloseOutlined /> : <MenuOutlined />}
         </button>
       </div>
 
-      {/* Menu chính */}
-      <div className={`flex items-center gap-8 w-full justify-end ${menuOpen ? 'block' : 'hidden'} md:flex`}>
-        <ul className="flex gap-8 md:flex-row flex-col justify-end">
+      {/* Logo Centered for mobile */}
+      <div className="text-center md:text-left flex-grow md:flex-none">
+        <Link to="/" className="text-xl font-bold">{t('header.LOGO')}</Link>
+      </div>
+
+      {/* Language Selector on the right (Mobile) */}
+      <div className="md:hidden">
+        <Select
+          value={i18n.language}
+          onChange={handleLanguageChange}
+          className="bg-gray-700 text-white w-[90px]"
+        >
+          <Option value="en">EN</Option>
+          <Option value="vi">VI</Option>
+          <Option value="ja">JP</Option>
+        </Select>
+      </div>
+
+      {/* Mobile Menu Dropdown */}
+      <div
+        className={`absolute top-full left-0 w-full bg-black z-50 md:hidden ${
+          menuOpen ? 'block' : 'hidden'
+        }`}
+      >
+        <ul className="flex flex-col items-start p-4">
+          <li className={`p-2 ${isActive('/') ? 'text-blue-500 font-bold' : 'hover:text-gray-400'}`}>
+            <Link to="/">{t('header.home')}</Link>
+          </li>
+          <li className={`p-2 ${isActive('/company') ? 'text-blue-500 font-bold' : 'hover:text-gray-400'}`}>
+            <Link to="/company">{t('header.company')}</Link>
+          </li>
+          <li className={`p-2 ${isActive('/business') ? 'text-blue-500 font-bold' : 'hover:text-gray-400'}`}>
+            <Link to="/business">{t('header.business')}</Link>
+          </li>
+          <li className={`p-2 ${isActive('/blog') ? 'text-blue-500 font-bold' : 'hover:text-gray-400'}`}>
+            <Link to="/blog">{t('header.blog')}</Link>
+          </li>
+        </ul>
+      </div>
+
+      {/* Desktop Menu */}
+      <nav className="hidden md:flex items-center gap-8">
+        <ul className="flex gap-4">
           <li className={`hover:text-gray-400 ${isActive('/') ? 'text-blue-500 font-bold' : ''}`}>
             <Link to="/">{t('header.home')}</Link>
           </li>
@@ -58,30 +90,16 @@ const Header = () => {
             <Link to="/blog">{t('header.blog')}</Link>
           </li>
         </ul>
-
-        {/* Dropdown Select for Language */}
-        <div className="flex flex-col md:flex-row items-center gap-4">
-          {/* Login và Signup trên mobile */}
-          <Select
-            defaultValue="lo"
-            className="text-sm sm:text-base"
-          >
-            <Option value="lo">{t('header.login')}</Option>
-            <Option value="si">{t('header.signup')}</Option>
-          </Select>
-
-          {/* Dropdown ngôn ngữ */}
-          <Select
-            value={i18n.language} // Sử dụng giá trị ngôn ngữ hiện tại từ i18n
-            onChange={handleLanguageChange} // Gọi hàm khi thay đổi ngôn ngữ
-            className="bg-gray-700 text-white text-sm sm:text-base"
-          >
-            <Option value="vi">Tiếng Việt</Option>
-            <Option value="en">English</Option>
-            <Option value="ja">日本語</Option>
-          </Select>
-        </div>
-      </div>
+        <Select
+          value={i18n.language}
+          onChange={handleLanguageChange}
+          className="bg-gray-700 text-white w-[90px]"
+        >
+          <Option value="en">English</Option>
+          <Option value="vi">Tiếng Việt</Option>
+          <Option value="ja">日本語</Option>
+        </Select>
+      </nav>
     </header>
   );
 };

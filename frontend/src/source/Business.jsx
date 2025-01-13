@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -9,19 +9,26 @@ import ContactUs from '../components/ContactUs';
 import { Link, useLocation } from "react-router-dom";
 import '../App.css';
 import StickyRightContact from '../components/StickyRightContact';
+import Animation from '../components/Animation';
+import LoadingPage from '../components/LoadingPage'; // Đảm bảo đã import LoadingPage
 
 const Business = () => {
     const { t } = useTranslation();
     const location = useLocation();
+    const [loading, setLoading] = useState(true); // Khởi tạo state loading
 
     useEffect(() => {
-        if (location.hash) {
-            const element = document.getElementById(location.hash.substring(1));
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    }, [location]);
+        // Đặt timeout để mô phỏng thời gian loading trang
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 1500); // Giả sử trang tải xong sau 3 giây
+
+        return () => clearTimeout(timer);
+    }, []);
+
+    if (loading) {
+        return <LoadingPage />; // Hiển thị trang loading khi đang tải
+    }
 
     return (
         <>
@@ -34,8 +41,9 @@ const Business = () => {
                         alt="Full Width Image"
                         className="object-cover w-full h-full"
                     />
-                    <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white px-6 sm:px-12 lg:px-72">
-                        <div className="text-center sm:text-left max-w-xl mx-auto sm:mx-0">
+                    <div className="absolute inset-0 flex justify-end items-center bg-black bg-opacity-50 text-white">
+                    <Animation aosEffect="fade-in" aosDuration={1500}>
+                        <div className="text-right max-w-4xl md:pr-96 px-4 md:pr-4">
                             <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold mb-4 text-shadow">
                                 {t("business.heroTitle")}
                             </h1>
@@ -43,6 +51,7 @@ const Business = () => {
                                 {t("business.heroDescription")}
                             </p>
                         </div>
+                    </Animation>
                     </div>
                 </div>
 
@@ -84,14 +93,18 @@ const Business = () => {
                 </div>
 
                 {/* Our Projects Section */}
+                <Animation aosEffect="zoom-in" aosDuration={1500}>
                 <div id="projects" className="my-12">
                     <OurProjects />
                 </div>
+                </Animation>
 
                 {/* Benefits Section */}
+                <Animation aosEffect="slide-up" aosDuration={1500}>
                 <div className="my-12">
                     <Benefits />
                 </div>
+                </Animation>
 
                 {/* Contact Us Section */}
                 <div id="joinusnow" className="my-12">

@@ -5,8 +5,8 @@
     "headlines": "Thông tin về KGS-Tech",
     "headlines_description": "đang tiến bước với các phần mềm AI tự động hóa công việc, các đối tác toàn cầu mở rộng phạm vi hoạt động, triển khai dịch vụ đám mây quy mô lớn thành công và cam kết mạnh mẽ đối với sự bền vững. Công ty cũng đã nhận được sự công nhận trong ngành vì các giải pháp sáng tạo của mình.",
     "company_name": "KGS-Tech",
-    "mission_and_vision": "Sứ mệnh và Tầm nhìn",
-    "latest_blogs": "Các bài viết mới nhất",
+    "mission_and_vision": "Sứ Mệnh Và Tầm Nhìn",
+    "latest_blogs": "Các Bài Viết Mới Nhất",
     "blog_1": "Khám phá cách AI đang thay đổi hoạt động kinh doanh và tương tác khách hàng.",
     "blog_2": "Tìm hiểu về lợi ích của dịch vụ đám mây quy mô lớn và tác động của nó đối với sự phát triển.",
     "blog_3": "Khám phá cách KGS-Tech đang tích hợp tính bền vững vào các sáng tạo công nghệ.",
@@ -30,22 +30,20 @@
     "home": "Trang Chủ",
     "company": "Công Ty",
     "business": "Doanh Nghiệp",
-    "blog": "Blog",
-    "login": "Đăng Nhập",
-    "signup": "Đăng Ký"
+    "blog": "Blog"
   },
   "company": {
-    "title": "Công ty KGS-Tech",
+    "title": "Công Ty KGS-Tech",
     "description": "KGS-Tech là công ty công nghệ cung cấp các giải pháp sáng tạo cho doanh nghiệp trên toàn thế giới. Chúng tôi giúp tổ chức tối ưu hóa hoạt động, cải thiện trải nghiệm khách hàng và thúc đẩy tăng trưởng nhờ các tiến bộ công nghệ mới nhất.",
     "core_values": {
-      "title": "Giá trị cốt lõi",
+      "title": "Giá Trị Cốt Lõi",
       "paragraph1": "Chúng tôi duy trì các tiêu chuẩn cao nhất về sự trung thực và đạo đức trong mọi hoạt động. Hành động của chúng tôi phản ánh cam kết trở thành đáng tin cậy và minh bạch.",
       "paragraph2": "Tiếp nhận sự thay đổi và nuôi dưỡng sự sáng tạo, chúng tôi không ngừng tìm kiếm các cách mới và tốt hơn để mang lại giá trị cho các bên liên quan."
     },
-    "leaders": "Những người lãnh đạo KGS-Tech"
+    "leaders": "Những Người Lãnh Đạo KGS-Tech"
   },
   "milestoneTracker": {
-    "title": "Theo dõi Cột mốc"
+    "title": "Theo Dõi Cột Mốc"
   },
   "milestones": {
     "start": {
@@ -252,5 +250,11 @@
         "Tối ưu hóa hiệu năng và sửa lỗi phát sinh."
       ]
     }
-  ]
+  ],
+  "testimonials": {
+    "title": "Khách Hàng Của Chúng Tôi Nói Gì",
+    "comment1": "Công ty này luôn cung cấp dịch vụ xuất sắc mỗi khi tôi cần. Tôi rất khuyên dùng!",
+    "comment2": "Sản phẩm tuyệt vời và dịch vụ khách hàng xuất sắc.",
+    "comment3": "Tôi luôn ấn tượng với chất lượng và tốc độ phục vụ ở đây. Đúng là trải nghiệm năm sao!"
+  }
 }

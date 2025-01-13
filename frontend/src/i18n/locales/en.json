@@ -30,9 +30,7 @@
     "home": "Home",
     "company": "Company",
     "business": "Business",
-    "blog": "Blog",
-    "login": "Login",
-    "signup": "Signup"
+    "blog": "Blog"
   },
   "company": {
     "title": "KGS-Tech Company",
@@ -253,5 +251,11 @@
         "Optimize performance and fix bugs."
       ]
     }
-  ]
+  ],
+  "testimonials": {
+    "title": "What Our Customers Say",
+    "comment1": "This company has provided exceptional service every time. Highly recommend!",
+    "comment2": "The products are top-notch and the customer service is outstanding.",
+    "comment3": "I'm always impressed with the quality and speed of service here. Truly a five-star experience!"
+  }
 }

@@ -33,8 +33,8 @@ const BlogComponents = () => {
   };
 
   return (
-    <div className="p-8 bg-gray-900 min-h-screen flex flex-col items-center mb-8">
-      <h1 className="text-4xl font-bold text-white mb-8">{t('blog.title')}</h1>
+    <div className="p-8 bg-gray-100 min-h-screen flex flex-col items-center mb-8">
+      <h1 className="text-4xl font-bold text-black mb-8">{t('blog.title')}</h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl">
         {currentPosts.map((post, index) => {
@@ -66,7 +66,7 @@ const BlogComponents = () => {
         >
           {t('blog.previous')}
         </button>
-        <span className="text-white">{t('blog.page')} {currentPage} {t('blog.of')} {Math.ceil(posts.length / postsPerPage)}</span>
+        <span className="text-black">{t('blog.page')} {currentPage} {t('blog.of')} {Math.ceil(posts.length / postsPerPage)}</span>
         <button
           onClick={nextPage}
           disabled={currentPage === Math.ceil(posts.length / postsPerPage)}

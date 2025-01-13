@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import Slider from "react-slick";
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -12,20 +11,34 @@ import AOS from 'aos';  // Import AOS
 import 'aos/dist/aos.css';  // Import AOS CSS
 import LatestBlogs from '../components/LatestBlogs';
 import MissionVision from "../components/MissionVision";
+import CustomerTestimonials from "../components/CustomerTestimonials";
+import Animation from '../components/Animation';
+import LoadingPage from '../components/LoadingPage'; // Đảm bảo import đúng
 
 const Home = () => {
-  const { t } = useTranslation(); // Hook để lấy hàm t() từ i18next
+  const { t } = useTranslation();
+  const [loading, setLoading] = useState(true); // Thêm state để quản lý loading
 
   useEffect(() => {
-    // Khởi tạo AOS
+    // Cấu hình AOS và các logic khác cần thiết
     AOS.init({
-      offset: 200, // Độ lệch để kích hoạt hiệu ứng khi cuộn gần đến
-      delay: 0,
+      offset: 200,
       duration: 1000,
       easing: 'ease',
-      once: true, // Chạy chỉ một lần
+      once: true,
     });
+
+    // Giả lập loading hoặc kiểm tra tải trang
+    const timer = setTimeout(() => {
+      setLoading(false); // Ẩn trang loading sau một khoảng thời gian
+    }, 1500); // Thời gian đợi trước khi ẩn trang loading, giả sử là 3 giây
+
+    return () => clearTimeout(timer); // Cleanup khi component unmount
   }, []);
+
+  if (loading) {
+    return <LoadingPage />; // Hiển thị trang loading nếu trang chưa sẵn sàng
+  }
 
   const imagesAndContent = [
     {
@@ -110,7 +123,7 @@ const Home = () => {
             className="object-cover w-full h-full opacity-80"
           />
           <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 text-white">
-            <div className="text-center max-w-xl">
+            <div className="text-center max-w-xl px-4 md:px-0">
               <h1 className="text-4xl md:text-6xl font-extrabold mb-4 animate__animated animate__fadeIn">
                 {t('home.homepage_title')}
               </h1>
@@ -133,10 +146,10 @@ const Home = () => {
 
             {/* Text Section */}
             <div className="text-left">
-              <h1 className="text-3xl md:text-5xl font-extrabold text-gradient mb-6 animate__animated animate__fadeIn animate__delay-1s">
+              <h1 className="text-3xl md:text-5xl font-extrabold text-gradient mb-6">
                 {t('home.headlines')}
               </h1>
-              <p className="text-lg md:text-xl font-medium text-gray-800 leading-relaxed animate__animated animate__fadeIn animate__delay-1.5s">
+              <p className="text-lg md:text-xl font-medium text-gray-800 leading-relaxed">
                 <span className="text-primary">{t('home.company_name')}</span> {t('home.headlines_description')}
               </p>
             </div>
@@ -144,13 +157,31 @@ const Home = () => {
         </div>
 
         {/* Mission and Vision Section */}
-          <MissionVision imagesAndContent={imagesAndContent} />
+        <div>
+          <Animation aosEffect="fade-up" aosDuration={1500}>
+            <MissionVision imagesAndContent={imagesAndContent} />
+          </Animation>
+        </div>
+          
 
         {/* Featured Projects Section */}
-        <FeaturedProjects/>
-
+        <div>
+          <Animation aosEffect="fade-up" aosDuration={1500}>
+            <FeaturedProjects/>
+          </Animation>
+        </div>
         {/* Latest Blogs Section */}
-        <LatestBlogs imagesNews={imagesNews} />
+        <div>
+          <Animation aosEffect="fade-up" aosDuration={1500}>
+            <LatestBlogs imagesNews={imagesNews} />
+          </Animation>
+        </div>
+        {/* Customer Testimonials*/}
+        <div>
+          <Animation aosEffect="fade-in" aosDuration={1500}>
+            <CustomerTestimonials/>
+          </Animation>
+        </div>
         <Footer />
       </div>
       <ScrollToTopButton />
