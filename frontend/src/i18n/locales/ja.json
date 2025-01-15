@@ -256,5 +256,30 @@
     "comment1": "この会社はいつも素晴らしいサービスを提供してくれます。非常にお勧めです！",
     "comment2": "製品は一流で、顧客サービスも抜群です。",
     "comment3": "ここの品質とサービスの速さにはいつも感動しています。本当に5つ星の体験です！"
+  },
+  "admin": {
+    "welcome": "KGS-TECH会社へようこそ",
+    "loginTitle": "ログイン",
+    "signUpTitle": "サインアップ",
+    "firstName": "名",
+    "lastName": "姓",
+    "dob": "生年月日",
+    "gender": "性別",
+    "phone": "電話番号",
+    "username": "ユーザー名",
+    "password": "パスワード",
+    "loginButton": "ログイン",
+    "signUpButton": "サインアップ",
+    "backToLogin": "ログインに戻る",
+    "select": "選択してください",
+    "male": "男性",
+    "female": "女性",
+    "other": "その他",
+    "firstNamePlaceholder": "名を入力してください",
+    "lastNamePlaceholder": "姓を入力してください",
+    "dobPlaceholder": "生年月日を選択してください",
+    "phonePlaceholder": "電話番号を入力してください",
+    "usernamePlaceholder": "ユーザー名を選択してください",
+    "passwordPlaceholder": "パスワードを入力してください"
   }
 }

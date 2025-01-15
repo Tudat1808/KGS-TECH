@@ -5,8 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyInfoController;
 use App\Http\Controllers\BlogController;
 
-Route::get('/company-info', [CompanyInfoController::class, 'index']);  // Lấy thông tin công ty
-Route::put('/company-info/{id}', [CompanyInfoController::class, 'update']);  // Cập nhật thông tin công ty
+Route::get('/company-info', [CompanyInfoController::class, 'index']); 
+Route::put('/company-info/{id}', [CompanyInfoController::class, 'update']);
 
 // GET routes
 Route::get('/users', [UserController::class, 'index']);  // GET all users

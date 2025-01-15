@@ -257,5 +257,30 @@
     "comment1": "This company has provided exceptional service every time. Highly recommend!",
     "comment2": "The products are top-notch and the customer service is outstanding.",
     "comment3": "I'm always impressed with the quality and speed of service here. Truly a five-star experience!"
+  },
+  "admin": {
+    "welcome": "WELCOME TO KGS-TECH COMPANY",
+    "loginTitle": "Login",
+    "signUpTitle": "Sign Up",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "dob": "Date of Birth",
+    "gender": "Gender",
+    "phone": "Phone Number",
+    "username": "Username",
+    "password": "Password",
+    "loginButton": "Login",
+    "signUpButton": "Sign Up",
+    "backToLogin": "Back to Login",
+    "select": "Select",
+    "male": "Male",
+    "female": "Female",
+    "other": "Other",
+    "firstNamePlaceholder": "Enter your first name",
+    "lastNamePlaceholder": "Enter your last name",
+    "dobPlaceholder": "Select your date of birth",
+    "phonePlaceholder": "Enter your phone number",
+    "usernamePlaceholder": "Choose a username",
+    "passwordPlaceholder": "Enter your password"
   }
 }

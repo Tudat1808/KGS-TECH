@@ -36,7 +36,7 @@ const Header = () => {
 
       {/* Logo Centered for mobile */}
       <div className="text-center md:text-left flex-grow md:flex-none">
-        <Link to="/" className="text-xl font-bold">{t('header.LOGO')}</Link>
+        <Link to="/admin" className="text-xl font-bold">{t('header.LOGO')}</Link>
       </div>
 
       {/* Language Selector on the right (Mobile) */}

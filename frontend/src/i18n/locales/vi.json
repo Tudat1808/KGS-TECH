@@ -256,5 +256,30 @@
     "comment1": "Công ty này luôn cung cấp dịch vụ xuất sắc mỗi khi tôi cần. Tôi rất khuyên dùng!",
     "comment2": "Sản phẩm tuyệt vời và dịch vụ khách hàng xuất sắc.",
     "comment3": "Tôi luôn ấn tượng với chất lượng và tốc độ phục vụ ở đây. Đúng là trải nghiệm năm sao!"
+  },
+  "admin": {
+    "welcome": "CHÀO MỪNG ĐẾN VỚI CÔNG TY KGS-TECH",
+    "loginTitle": "Đăng Nhập",
+    "signUpTitle": "Đăng Ký",
+    "firstName": "Tên",
+    "lastName": "Họ",
+    "dob": "Ngày Sinh",
+    "gender": "Giới Tính",
+    "phone": "Số Điện Thoại",
+    "username": "Tên Đăng Nhập",
+    "password": "Mật Khẩu",
+    "loginButton": "Đăng Nhập",
+    "signUpButton": "Đăng Ký",
+    "backToLogin": "Quay Lại Đăng Nhập",
+    "select": "Chọn",
+    "male": "Nam",
+    "female": "Nữ",
+    "other": "Khác",
+    "firstNamePlaceholder": "Nhập tên của bạn",
+    "lastNamePlaceholder": "Nhập họ của bạn",
+    "dobPlaceholder": "Chọn ngày sinh",
+    "phonePlaceholder": "Nhập số điện thoại",
+    "usernamePlaceholder": "Chọn tên đăng nhập",
+    "passwordPlaceholder": "Nhập mật khẩu"
   }
 }

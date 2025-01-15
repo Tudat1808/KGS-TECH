@@ -41,7 +41,7 @@ const LatestBlogs = ({ imagesNews }) => {
                   <p className="text-gray-600 text-justify">{item.content}</p>
                   <div className="text-center mt-4">
                   <Link to={item.link}>
-                      <button className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
+                      <button className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition button-page">
                       {t('home.homepage_ReadMore')}
                       </button>
                   </Link>

@@ -7,9 +7,6 @@ use Illuminate\Database\Seeder;
 
 class BlogSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         DB::table('blog_posts')->insert([

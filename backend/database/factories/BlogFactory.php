@@ -17,7 +17,7 @@ class BlogFactory extends Factory
             'slug' => $this->faker->slug(),
             'content' => $this->faker->paragraphs(5, true),
             'thumbnail' => $this->faker->imageUrl(640, 480, 'blog', true),
-            'author_id' => User::factory(),  // Tạo user mẫu để tham chiếu
+            'author_id' => User::factory(),
             'is_published' => $this->faker->boolean(),
             'published_at' => $this->faker->optional()->dateTimeBetween('-1 year', 'now'),
         ];

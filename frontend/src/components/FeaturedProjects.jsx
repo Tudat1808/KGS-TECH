@@ -38,7 +38,7 @@ const FeaturedProjects = () => {
         </div>
         <div className="text-center mt-8">
           <Link to="/business">
-              <button className="px-6 py-2 bg-gray-100 text-black font-semibold rounded-lg hover:bg-gray-300 transition">
+              <button className="px-6 py-2 bg-gray-100 text-black font-semibold rounded-lg hover:bg-gray-300 transition button-page">
               {t('featured_projects.more_projects')}
               </button>
           </Link>

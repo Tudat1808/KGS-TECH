@@ -29,7 +29,7 @@ const ScrollToTopButton = () => {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-8 right-8 p-4 bg-white text-black rounded-full shadow-lg hover:bg-blue-600 transition ${visible ? 'block' : 'hidden'}`}
+      className={`button-page fixed bottom-8 right-8 p-4 bg-white text-black rounded-full shadow-lg hover:bg-blue-600 transition ${visible ? 'block' : 'hidden'}`}
     >
       <UpOutlined />
     </button>

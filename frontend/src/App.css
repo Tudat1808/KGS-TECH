@@ -24,7 +24,7 @@
     background-position: center;
   }
   
-  button:hover {
+  .button-page:hover {
     transform: scale(1.05);
     transition: transform 0.3s ease-in-out;
   }
@@ -112,3 +112,154 @@ p {
   font-size: 1rem; /* 16px */
   font-weight: 400; /* regular */
 }
+
+.signup-button {
+  display: block; /* Đảm bảo nút được hiển thị dưới dạng block */
+  width: auto; /* Chiều rộng tự động phù hợp với nội dung */
+  margin: 10px auto; /* Căn giữa nút */
+  padding: 10px; /* Đệm để tăng kích thước nhấp chuột */
+  cursor: pointer; /* Con trỏ chuột thay đổi khi di chuyển qua nút */
+  text-align: center; /* Căn giữa nội dung nút */
+  border: none; /* Không viền */
+  background: none; /* Không màu nền */
+  color: inherit; /* Kế thừa màu chữ từ phần tử cha */
+  text-decoration: underline; /* Gạch chân cho nút */
+}
+
+/* Các styles khác */
+.admin-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 93vh;
+  position: relative;
+}
+
+.welcome-message {
+  position: absolute;
+  left: 15%;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffffff;
+  font-size: 4.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+  max-width: 600px;
+  z-index: 1;
+  line-height: 1.2;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 30px 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+}
+
+.login-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('https://img.freepik.com/free-photo/creative-people-working-office_23-2147656715.jpg?t=st=1736907596~exp=1736911196~hmac=451e42c78cfe3090cf442fc9c4787135136537a594c1883e1101ed69be38e18f&w=1380') no-repeat center center/cover;
+  z-index: 0;
+  opacity: 0.9;
+}
+
+.login-form-container, .signup-form-container {
+  z-index: 2;
+  width: 500px;
+  height: auto;
+  margin-right: 10%;
+  background: rgba(247, 250, 252, 0.85);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group input, .input-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.login-button {
+  width: 100%;
+  padding: 10px;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.select-custom {
+  /* Ẩn mũi tên mặc định */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  /* Thiết lập kích thước của select */
+  width: 100%;
+  padding: 8px 15px 8px 8px; /* Điều chỉnh padding để mũi tên nằm gọn ở cuối */
+
+  /* Thêm mũi tên hướng xuống */
+  background-image: url('https://www.iconpacks.net/icons/2/free-arrow-down-icon-3101-thumb.png'); /* Đường dẫn tới hình ảnh mũi tên của bạn */
+  background-repeat: no-repeat;
+  background-position: right 12px center; /* Vị trí của mũi tên */
+  background-size: 15px; /* Kích thước của mũi tên */
+
+  /* Đảm bảo rằng select không hiển thị mũi tên trình duyệt mặc định */
+  border: 1px solid #ccc;
+  border-radius: 4px; /* Làm tròn các góc */
+  
+  /* Điều chỉnh màu nền và màu chữ nếu cần */
+  color: #333; /* Màu chữ */
+  background-color: #fff; /* Màu nền */
+}
+
+@media (max-width: 768px) {
+  .admin-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Đảm bảo container chiếm toàn bộ chiều cao màn hình */
+    padding: 10px; /* Giảm padding để tối đa không gian hiển thị */
+    overflow: auto; /* Thêm thanh cuộn nếu cần */
+  }
+
+  .welcome-message {
+    display: none; /* Ẩn dòng chào mừng trên thiết bị di động */
+  }
+
+  .login-form-container, .signup-form-container {
+    width: 100%; /* Chiếm toàn bộ chiều rộng có thể */
+    max-width: 500px; /* Giới hạn chiều rộng tối đa cho form */
+    margin: 0 auto; /* Căn giữa form trong container */
+    padding: 15px;
+    box-sizing: border-box; /* Bao gồm padding và border vào chiều rộng và chiều cao tổng */
+    overflow: hidden; /* Ẩn nội dung tràn ra ngoài */
+  }
+
+  .input-group {
+    margin-bottom: 10px; /* Giảm khoảng cách giữa các trường nhập liệu */
+  }
+
+  .input-group input, .input-group select {
+    height: 40px; /* Đặt chiều cao cố định cho các trường nhập */
+    padding: 8px;
+    width: 100%; /* Đảm bảo rằng các phần tử input sử dụng toàn bộ chiều rộng có thể */
+  }
+
+  .login-button, .signup-button {
+    padding: 12px; /* Tăng đệm cho nút để dễ bấm hơn trên thiết bị cảm ứng */
+    margin-top: 10px; /* Tạo khoảng cách giữa các nút */
+  }
+}
+
+
+
+

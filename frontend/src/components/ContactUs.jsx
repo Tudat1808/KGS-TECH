@@ -88,7 +88,7 @@ const ContactUs = () => {
             <div>
               <button
                 type="submit"
-                className="w-full py-3 text-lg text-white font-semibold bg-transparent border-2 border-brown-600 text-brown-600 rounded-lg shadow-md hover:bg-brown-600 hover:text-white hover:shadow-lg transition-all duration-300"
+                className="button-page w-full py-3 text-lg text-white font-semibold bg-transparent border-2 border-brown-600 text-brown-600 rounded-lg shadow-md hover:bg-brown-600 hover:text-white hover:shadow-lg transition-all duration-300"
               >
                 {t('contactUs.form.submit')}
               </button>
