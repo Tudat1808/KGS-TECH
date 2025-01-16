@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class BlogController extends Controller
 {
@@ -25,11 +26,10 @@ class BlogController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
-            'slug' => 'required|string|unique:blogs',
-            'content' => 'required',
-            'thumbnail' => 'nullable|string',
-            'author_id' => 'required|exists:users,id',
+            'title_key' => 'required|string|max:255',
+            'description_key' => 'required',
+            'image_url' => 'required|url',
+            'date' => 'required|date', // Adding validation for date
         ]);
 
         $blog = Blog::create($validatedData);
@@ -42,11 +42,10 @@ class BlogController extends Controller
         $blog = Blog::findOrFail($id);
 
         $validatedData = $request->validate([
-            'title' => 'sometimes|required|string|max:255',
-            'slug' => 'sometimes|required|string|unique:blogs,slug,' . $id,
-            'content' => 'sometimes|required',
-            'thumbnail' => 'nullable|string',
-            'author_id' => 'sometimes|required|exists:users,id',
+            'title_key' => 'sometimes|required|string|max:255',
+            'description_key' => 'sometimes|required',
+            'image_url' => 'sometimes|required|url',
+            'date' => 'sometimes|required|date', // Validate date when updating
         ]);
 
         $blog->update($validatedData);

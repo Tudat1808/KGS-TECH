@@ -4,12 +4,13 @@ namespace Database\Seeders;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use app\Models\Blog;
 
 class BlogSeeder extends Seeder
 {
     public function run(): void
     {
-        DB::table('blog_posts')->insert([
+        DB::table('blogs')->insert([
             [
                 'title_key' => 'blog.post1Title',
                 'description_key' => 'blog.post1Description',

@@ -7,9 +7,11 @@ import "slick-carousel/slick/slick-theme.css";
 import Business from './source/Business';
 import Blog from './source/Blog';
 import Blog1 from './source/Blog1';
-import Admin from './source/Admin';
-import Management from './source/Management';
 import Layout from './components/Layout';
+import Admin from './source/Admin';
+import Management from './source/Management/Management';
+import EditImages from './source/Management/EditImages';
+import Dashboard from './source/Management/Dashboard';
 
 function App() {
   return (
@@ -21,8 +23,10 @@ function App() {
           <Route path="/business" element={<Business />} /> 
           <Route path="/blog" element={<Blog />} /> 
           <Route path="/blog1" element={<Blog1 />} />
-          <Route path="/admin" element={<Admin />} />
+          <Route path="/admin" element={<Admin />}/>
           <Route path="/management" element={<Management />} />
+          <Route path="/management/editimages" element={<EditImages/>} />
+          <Route path="/management/dashboard" element={<Dashboard/>} />
         </Route>
       </Routes>
     </Router>

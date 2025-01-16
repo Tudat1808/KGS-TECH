@@ -1,26 +1,17 @@
 <?php
 
+// Trong file app/Models/Blog.php
+
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Blog extends Model
 {
-    use HasFactory;
+    protected $table = 'blogs'; // Đảm bảo tên bảng chính xác
 
     protected $fillable = [
-        'title',
-        'slug',
-        'content',
-        'thumbnail',
-        'author_id',
-        'is_published',
-        'published_at',
-    ];
-
-    protected $casts = [
-        'is_published' => 'boolean',
-        'published_at' => 'datetime',
+        'title_key', 'description_key', 'image_url', 'date' // Các cột có thể được mass assigned
     ];
 }
+

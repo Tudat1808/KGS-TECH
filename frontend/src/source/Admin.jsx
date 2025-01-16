@@ -46,102 +46,102 @@ const Admin = () => {
           <div className="background-image"></div>
         </div>
         <div className={`${isSignUp ? 'signup-form-container' : 'login-form-container'} animate__animated animate__fadeIn`}>
-  <form onSubmit={handleSubmit} className="login-form">
-    <h1 className="text-center">{isSignUp ? t('admin.signUpTitle') : t('admin.loginTitle')}</h1>
-    {isSignUp && (
-      <>
-        <div className="input-group">
-          <label htmlFor="firstName">{t('admin.firstName')}</label>
-          <input
-            type="text"
-            id="firstName"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-            placeholder={t('admin.firstNamePlaceholder')}
-            style={{ fontStyle: 'italic', fontSize: 'small' }}
-          />
+          <form onSubmit={handleSubmit} className="login-form">
+            <h1 className="text-center">{isSignUp ? t('admin.signUpTitle') : t('admin.loginTitle')}</h1>
+            {isSignUp && (
+              <>
+                <div className="input-group">
+                  <label htmlFor="firstName">{t('admin.firstName')}</label>
+                  <input
+                    type="text"
+                    id="firstName"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    placeholder={t('admin.firstNamePlaceholder')}
+                    style={{ fontStyle: 'italic', fontSize: 'small' }}
+                  />
+                </div>
+                <div className="input-group">
+                  <label htmlFor="lastName">{t('admin.lastName')}</label>
+                  <input
+                    type="text"
+                    id="lastName"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    placeholder={t('admin.lastNamePlaceholder')}
+                    style={{ fontStyle: 'italic', fontSize: 'small' }}
+                  />
+                </div>
+                <div className="input-group">
+                  <label htmlFor="dob">{t('admin.dob')}</label>
+                  <input
+                    type="date"
+                    id="dob"
+                    value={dob}
+                    onChange={(e) => setDob(e.target.value)}
+                    placeholder={t('admin.dobPlaceholder')}
+                    style={{ fontStyle: 'italic', fontSize: 'small' }}
+                  />
+                </div>
+                <div className="input-group">
+                  <label htmlFor="gender">{t('admin.gender')}</label>
+                  <select
+                    id="gender"
+                    className="select-custom"
+                    value={gender}
+                    onChange={(e) => setGender(e.target.value)}
+                  >
+                    <option value="">{t('admin.select')}</option>
+                    <option value="male">{t('admin.male')}</option>
+                    <option value="female">{t('admin.female')}</option>
+                    <option value="other">{t('admin.other')}</option>
+                  </select>
+                </div>
+                <div className="input-group">
+                  <label htmlFor="phone">{t('admin.phone')}</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder={t('admin.phonePlaceholder')}
+                    style={{ fontStyle: 'italic', fontSize: 'small' }}
+                  />
+                </div>
+              </>
+            )}
+            <div className="input-group">
+              <label htmlFor="username">{t('admin.username')}</label>
+              <input
+                type="text"
+                id="username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                placeholder={t('admin.usernamePlaceholder')}
+                style={{ fontStyle: 'italic', fontSize: 'small' }}
+              />
+            </div>
+            <div className="input-group">
+              <label htmlFor="password">{t('admin.password')}</label>
+              <input
+                type="password"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder={t('admin.passwordPlaceholder')}
+                style={{ fontStyle: 'italic', fontSize: 'small' }}
+              />
+            </div>
+            <Link to="/management" style={{ textDecoration: 'none' }}>
+              <button className="login-button" type="submit">
+                {isSignUp ? t('admin.signUpButton') : t('admin.loginButton')}
+              </button>
+            </Link>
+            <button type="button" className="signup-button" onClick={() => setIsSignUp(!isSignUp)}>
+              {isSignUp ? t('admin.backToLogin') : t('admin.signUpButton')}
+            </button>
+          </form>
         </div>
-        <div className="input-group">
-          <label htmlFor="lastName">{t('admin.lastName')}</label>
-          <input
-            type="text"
-            id="lastName"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-            placeholder={t('admin.lastNamePlaceholder')}
-            style={{ fontStyle: 'italic', fontSize: 'small' }}
-          />
-        </div>
-        <div className="input-group">
-          <label htmlFor="dob">{t('admin.dob')}</label>
-          <input
-            type="date"
-            id="dob"
-            value={dob}
-            onChange={(e) => setDob(e.target.value)}
-            placeholder={t('admin.dobPlaceholder')}
-            style={{ fontStyle: 'italic', fontSize: 'small' }}
-          />
-        </div>
-        <div className="input-group">
-          <label htmlFor="gender">{t('admin.gender')}</label>
-          <select
-            id="gender"
-            className="select-custom"
-            value={gender}
-            onChange={(e) => setGender(e.target.value)}
-          >
-            <option value="">{t('admin.select')}</option>
-            <option value="male">{t('admin.male')}</option>
-            <option value="female">{t('admin.female')}</option>
-            <option value="other">{t('admin.other')}</option>
-          </select>
-        </div>
-        <div className="input-group">
-          <label htmlFor="phone">{t('admin.phone')}</label>
-          <input
-            type="tel"
-            id="phone"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            placeholder={t('admin.phonePlaceholder')}
-            style={{ fontStyle: 'italic', fontSize: 'small' }}
-          />
-        </div>
-      </>
-    )}
-    <div className="input-group">
-      <label htmlFor="username">{t('admin.username')}</label>
-      <input
-        type="text"
-        id="username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        placeholder={t('admin.usernamePlaceholder')}
-        style={{ fontStyle: 'italic', fontSize: 'small' }}
-      />
-    </div>
-    <div className="input-group">
-      <label htmlFor="password">{t('admin.password')}</label>
-      <input
-        type="password"
-        id="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder={t('admin.passwordPlaceholder')}
-        style={{ fontStyle: 'italic', fontSize: 'small' }}
-      />
-    </div>
-    <Link to="/management" style={{ textDecoration: 'none' }}>
-      <button className="login-button" type="submit">
-        {isSignUp ? t('admin.signUpButton') : t('admin.loginButton')}
-      </button>
-    </Link>
-    <button type="button" className="signup-button" onClick={() => setIsSignUp(!isSignUp)}>
-      {isSignUp ? t('admin.backToLogin') : t('admin.signUpButton')}
-    </button>
-  </form>
-</div>
 
       </div>
     </>
