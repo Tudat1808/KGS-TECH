@@ -12,6 +12,22 @@ import StickyRightContact from '../components/StickyRightContact';
 import Animation from '../components/Animation';
 import LoadingPage from '../components/LoadingPage'; // Đảm bảo đã import LoadingPage
 
+function ScrollToHash() {
+    const location = useLocation();
+  
+    useEffect(() => {
+      if (location.hash) {
+        const id = location.hash.replace("#", "");
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({behavior: "smooth"});
+        }
+      }
+    }, [location]);
+  
+    return null;
+  }
+
 const Business = () => {
     const { t } = useTranslation();
     const location = useLocation();

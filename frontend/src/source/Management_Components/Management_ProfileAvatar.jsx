@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Avatar, Button, Popover, Box, IconButton, Typography } from '@mui/material';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import { Link } from 'react-router-dom';
 
 const Management_ProfileAvatar = () => {
     const [anchorEl, setAnchorEl] = useState(null);
@@ -71,8 +72,8 @@ const Management_ProfileAvatar = () => {
                 }}
             >
                 <Box sx={{ p: 2 }}>
-                    <Button sx={{ display: 'block', width: '100%', mb: 1 }} onClick={handleAvatarClose}>Manage Profile</Button>
-                    <Button sx={{ display: 'block', width: '100%' }} onClick={handleAvatarClose}>Logout</Button>
+                <Link to="/management"><Button sx={{ display: 'block', width: '100%', mb: 1 }} onClick={handleAvatarClose}>Manage Profile</Button></Link>
+                <Link to="/admin"><Button sx={{ display: 'block', width: '100%' }} onClick={handleAvatarClose}>Logout</Button></Link>
                 </Box>
             </Popover>
         </Box>

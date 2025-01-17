@@ -8,7 +8,7 @@ import AddIcon from '@mui/icons-material/Add';
 import ActionButtons from '../Management_Components/ActionButtons';
 
 
-const Dashboard = () => {
+const Employee = () => {
     const users = [
         { id: 1, username: "user1", email: "user1@example.com", phone: "1234567890", updatedAt: "2022-01-01", gender: "male", status: "Active" },
         { id: 2, username: "user2", email: "user2@example.com", phone: "0987654321", updatedAt: "2022-01-02", gender: "female", status: "Inactive" },
@@ -23,7 +23,7 @@ const Dashboard = () => {
                 <Typography variant="h4" sx={{ mt: 8, mb: 2 }}>
                     User Management
                 </Typography>
-                <TableContainer component={Paper}>
+                <TableContainer component={Paper} sx={{ backgroundColor: 'grey.100' }}>
                     <Table sx={{ minWidth: 650 }} aria-label="simple table">
                         <TableHead>
                             <TableRow>
@@ -82,4 +82,4 @@ const Dashboard = () => {
     );
 };
 
-export default Dashboard;
+export default Employee;

@@ -4,6 +4,14 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyInfoController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\AuthController;
+
+Route::post('/login', [AuthController::class, 'login']);
+
+Route::middleware('auth:api')->group(function() {
+    Route::post('/logout', [AuthController::class, 'logout']);
+});
+
 
 Route::get('/company-info', [CompanyInfoController::class, 'index']); 
 Route::put('/company-info/{id}', [CompanyInfoController::class, 'update']);

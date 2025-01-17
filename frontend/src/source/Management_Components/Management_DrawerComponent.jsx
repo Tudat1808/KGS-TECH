@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import {
-  Drawer, List, ListItem, ListItemIcon, ListItemText, Divider, Typography, Box, Collapse
+  Drawer, List, ListItem, ListItemIcon, ListItemText, Divider, Typography, Box, Collapse, Button
 } from '@mui/material';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
-import DashboardIcon from '@mui/icons-material/Dashboard';
 import PeopleIcon from '@mui/icons-material/People';
 import BusinessIcon from '@mui/icons-material/Business';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
@@ -12,6 +11,7 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import ProjectIcon from '@mui/icons-material/AccountTree';
+import LogoutIcon from '@mui/icons-material/Logout';
 import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
@@ -23,10 +23,8 @@ const Management_DrawerComponent = () => {
   };
 
   const menuItems = [
-    { text: 'Dashboard', icon: <DashboardIcon />, link: '/management/dashboard' },
-    { text: 'Employees', icon: <PeopleIcon />, onClick: handleClick, children: ['Employee1', 'Employee2', 'Employee3'] },
-    { text: 'Human Resources', icon: <PeopleIcon /> },
-    { text: 'Organization', icon: <BusinessIcon /> },
+    { text: 'Company Info', icon: <BusinessIcon />, link: '/management/company_info' },
+    { text: 'Employees', icon: <PeopleIcon />, onClick: handleClick, children: ['Employee1', 'Employee2', 'Employee3'], link: '/management/employee' },
     { text: 'Time Sheets', icon: <AccessTimeIcon /> },
     { text: 'Training', icon: <SchoolIcon /> },
     { text: 'Performance', icon: <BarChartIcon /> },
@@ -36,54 +34,66 @@ const Management_DrawerComponent = () => {
     { 
       text: 'Edit Images', 
       icon: <img src="https://i.fbcd.co/products/resized/resized-750-500/563d0201e4359c2e890569e254ea14790eb370b71d08b6de5052511cc0352313.jpg" style={{ width: 30, height: 30 }} />,
-      link: '/management/editimages'
+      link: '/management/editimages_blogs'
     }
   ];
 
   return (
     <Drawer
-      variant="permanent"
-      sx={{
-        width: drawerWidth,
-        flexShrink: 0,
-        [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
-      }}
+  variant="permanent"
+  sx={{
+    width: drawerWidth,
+    flexShrink: 0,
+    display: 'flex',
+    flexDirection: 'column', // Đảm bảo các thành phần trong drawer được sắp xếp theo cột
+    [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box', backgroundColor: 'grey.100' },
+  }}
+>
+  <Box sx={{ padding: 2, textAlign: 'center' }}>
+    <Typography variant="h6"><Link to="/management">LOGO</Link></Typography>
+  </Box>
+  <Divider />
+  <List sx={{ flexGrow: 1 }}>
+    {menuItems.map((item, index) => (
+      <React.Fragment key={index}>
+        <ListItem 
+          button 
+          key={item.text} 
+          component={item.link ? Link : "div"}
+          to={item.link || "#"}
+          onClick={item.onClick}
+        >
+          <ListItemIcon>
+            {item.icon}
+          </ListItemIcon>
+          <ListItemText primary={item.text} />
+          {item.children ? (open ? <ExpandLess /> : <ExpandMore />) : null}
+        </ListItem>
+        {item.children && (
+          <Collapse in={open} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              {item.children.map((child, index) => (
+                <ListItem button key={child}>
+                  <ListItemText inset primary={child} />
+                </ListItem>
+              ))}
+            </List>
+          </Collapse>
+        )}
+      </React.Fragment>
+    ))}
+  </List>
+  <Box sx={{ textAlign: 'center', mb: 2 }}>
+    <Button
+      startIcon={<LogoutIcon />}
+      sx={{ bgcolor: 'red', color: 'white', '&:hover': { bgcolor: 'darkred' } }}
+      onClick={() => console.log("Logging out")}
     >
-      <Box sx={{ padding: 2, textAlign: 'center' }}>
-        <Typography variant="h6"><Link to="/management">LOGO</Link></Typography>
-      </Box>
-      <Divider />
-      <List>
-        {menuItems.map((item, index) => (
-          <>
-            <ListItem 
-              button 
-              key={item.text} 
-              component={item.link ? Link : "div"}
-              to={item.link || "#"}
-              onClick={item.onClick}
-            >
-              <ListItemIcon>
-                {item.icon}
-              </ListItemIcon>
-              <ListItemText primary={item.text} />
-              {item.children ? (open ? <ExpandLess /> : <ExpandMore />) : null}
-            </ListItem>
-            {item.children && (
-              <Collapse in={open} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  {item.children.map((child, index) => (
-                    <ListItem button key={child}>
-                      <ListItemText inset primary={child} />
-                    </ListItem>
-                  ))}
-                </List>
-              </Collapse>
-            )}
-          </>
-        ))}
-      </List>
-    </Drawer>
+      Logout
+    </Button>
+  </Box>
+</Drawer>
+
   );
 };
 

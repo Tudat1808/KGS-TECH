@@ -14,7 +14,7 @@ const CenteredImageGallery = () => {
   ];
 
   return (
-    <div className="flex justify-center items-center min-h-screen">
+    <div className="flex justify-center items-center min-h-screen mb-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-48 text-center">
         {images.map((image, index) => (
           <div key={index} className="flex flex-col items-center mb-6 md:mb-0">

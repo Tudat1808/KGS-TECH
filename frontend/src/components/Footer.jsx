@@ -2,14 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { DiscordFilled, FacebookFilled, LinkedinFilled, PhoneFilled, YoutubeFilled } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
+import '../App.css';
 
 const Footer = () => {
   const { t } = useTranslation();
 
   return (
     <footer className="bg-gray-800 text-gray-300 py-6 w-full overflow-hidden" id="footer">
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-4 grid grid-cols-1 md:grid-cols-4 gap-16">
-        <div className="flex flex-col space-y-4 items-center mt-24">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-2 md:px-4 grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-16">
+        <div className="flex flex-col space-y-4 items-center mt-24 sm:mt-12 md:mt-24">
           <img src="https://i.imgur.com/NUSlL3a.png" alt="KGS-Tech Logo" className="h-48 mx-auto" />
         </div>
 
@@ -39,7 +40,7 @@ const Footer = () => {
         </div>
 
         {/* Contact Section */}
-        <div className="flex flex-col space-y-4 md:ml-8 lg:ml-16 w-full max-w-[120%]">
+        <div className="flex flex-col space-y-4 md:space-y-2 lg:space-y-4 w-full ">
           <h4 className="text-lg font-semibold text-white">{t('footer.contactUs')}</h4>
           <p>{t('footer.email')}: <a href="mailto:info@techcompany.com" className="hover:text-blue-400">info@kgstechcompany.com</a></p>
           <p>{t('footer.phone')}:
@@ -58,7 +59,7 @@ const Footer = () => {
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.149585702824!2d106.74995871533485!3d10.80532586164306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317527327dbce0d1%3A0xeedd1dd9ff329d7a!2zNDAgxJDGsOG7nW5nIMSR4buVaSAgMTYgLCBBbiBQaMO6LCBUaOG7pyDEkMOgQ8OibiwgVGjhu6UgROG7q25nIFbhuq1uIE5hbQ!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s"
               width="120%"
               height="200"
-              style={{ border: 0 }}
+              style={{ border: 0, width: "100%", height: "200px", maxWidth: "100%" }}
               allowFullScreen=""
               loading="lazy"
               title="Location Map"

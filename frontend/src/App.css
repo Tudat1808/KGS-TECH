@@ -96,6 +96,16 @@
   .fixed-width-select {
     width: 120px !important;
   }
+  .footer-contact {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.footer-contact {
+  width: 100%;
+  max-width: 120%;
 }
 
 h1 {

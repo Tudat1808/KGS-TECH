@@ -8,7 +8,7 @@ import ActionButtons from '../Management_Components/ActionButtons';
 import AddIcon from '@mui/icons-material/Add';
 import { Button } from '@mui/material';
 
-const EditImages = () => {
+const EditImages_Blogs = () => {
   const imageData = [
     { id: 1, title: "Image 1", description: "This is image 1", link: "https://example.com/image1", updatedAt: "2022-01-01" },
     { id: 2, title: "Image 2", description: "This is image 2", link: "https://example.com/image2", updatedAt: "2022-01-02" },
@@ -22,7 +22,7 @@ const EditImages = () => {
         <Management_Header />
         <Box sx={{ mt: 8 }}>
           <Typography variant="h4" gutterBottom>Edit Images</Typography>
-          <TableContainer component={Paper}>
+          <TableContainer component={Paper} sx={{ backgroundColor: 'grey.100' }}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
@@ -68,5 +68,5 @@ const EditImages = () => {
   );
 }
 
-export default EditImages;
+export default EditImages_Blogs;
 
