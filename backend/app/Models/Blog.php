@@ -1,17 +1,21 @@
 <?php
 
-// Trong file app/Models/Blog.php
-
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Blog extends Model
 {
-    protected $table = 'blogs'; // Đảm bảo tên bảng chính xác
+    use HasFactory;
 
     protected $fillable = [
-        'title_key', 'description_key', 'image_url', 'date' // Các cột có thể được mass assigned
+        'title_key', 'description_key', 'uploaded_by', 'date_upload', 'date_updated'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'uploaded_by');
+    }
 }
 

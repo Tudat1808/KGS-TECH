@@ -9,10 +9,11 @@ import Blog from './source/Blog';
 import Blog1 from './source/Blog1';
 import Layout from './components/Layout';
 import Admin from './source/Admin';
-import Management from './source/Management/Management';
+import Management_CompanyInfo from './source/Management/Management_Companyinfo';
 import EditImages_Blogs from './source/Management/EditImages_Blogs';
-import Company_Info from './source/Management/Company_Info';
 import Employee from './source/Management/Employee';
+import Test from './source/Management/Test';
+import HomePage from './source/Management/HomePage';
 
 function App() {
   return (
@@ -25,10 +26,11 @@ function App() {
           <Route path="/blog" element={<Blog />} /> 
           <Route path="/blog1" element={<Blog1 />} />
           <Route path="/admin" element={<Admin />}/>
-          <Route path="/management" element={<Management />} />
           <Route path="/management/editimages_blogs" element={<EditImages_Blogs/>} />
-          <Route path="/management/company_info" element={<Company_Info/>} />
+          <Route path="/management/management_companyinfo" element={<Management_CompanyInfo/>} />
           <Route path="/management/employee" element={<Employee/>} />
+          <Route path="/management/test" element={<Test/>} />
+          <Route path="/management/homepage" element={<HomePage/>} />
         </Route>
       </Routes>
     </Router>

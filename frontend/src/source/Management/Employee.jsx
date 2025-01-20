@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 import Management_DrawerComponent from '../Management_Components/Management_DrawerComponent';
 import Management_Header from '../Management_Components/Management_Header';
 import { Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, Select, MenuItem, Typography, Button } from '@mui/material';
@@ -9,11 +9,34 @@ import ActionButtons from '../Management_Components/ActionButtons';
 
 
 const Employee = () => {
-    const users = [
-        { id: 1, username: "user1", email: "user1@example.com", phone: "1234567890", updatedAt: "2022-01-01", gender: "male", status: "Active" },
-        { id: 2, username: "user2", email: "user2@example.com", phone: "0987654321", updatedAt: "2022-01-02", gender: "female", status: "Inactive" },
-        // Thêm các users khác
-    ];
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+  
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const response = await fetch('http://127.0.0.1:8000/api/users');
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const data = await response.json();
+          setUser(data);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+          setError(error.message);
+        } finally {
+          setLoading(false);
+        }
+      };
+  
+      fetchData();
+    }, []);
+    console.log(user,'user');
+  
+    
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error loading data: {error}</p>;
 
     return (
         <Box sx={{ display: 'flex', height: '100vh' }}>
@@ -31,32 +54,22 @@ const Employee = () => {
                                 <TableCell>Username</TableCell>
                                 <TableCell>Email</TableCell>
                                 <TableCell>Phone</TableCell>
-                                <TableCell>Updated At</TableCell>
+                                <TableCell>Birth Date</TableCell>
                                 <TableCell>Gender</TableCell>
                                 <TableCell>Status</TableCell>
                                 <TableCell align="right">Actions</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {users.map((user) => (
+                            {user.map((user) => (
                                 <TableRow key={user.id}>
                                     <TableCell>{user.id}</TableCell>
                                     <TableCell>{user.username}</TableCell>
                                     <TableCell>{user.email}</TableCell>
                                     <TableCell>{user.phone}</TableCell>
-                                    <TableCell>{user.updatedAt}</TableCell>
-                                    <TableCell>
-                                        <Select
-                                            value={user.gender}
-                                            onChange={(event) => console.log(`Gender for user ${user.id} changed to ${event.target.value}`)}
-                                            displayEmpty
-                                        >
-                                            <MenuItem value="male">Male</MenuItem>
-                                            <MenuItem value="female">Female</MenuItem>
-                                            <MenuItem value="other">Other</MenuItem>
-                                        </Select>
-                                    </TableCell>
-                                    <TableCell>{user.status}</TableCell>
+                                    <TableCell>{user.date_of_birth}</TableCell>
+                                    <TableCell>{user.gender}</TableCell>
+                                    <TableCell>{user.is_active}</TableCell>
                                     <TableCell align="right">
                                         <IconButton onClick={() => console.log(`Editing user ${user.id}`)}><EditIcon /></IconButton>
                                         <IconButton onClick={() => console.log(`Deleting user ${user.id}`)}><DeleteIcon /></IconButton>
@@ -73,10 +86,11 @@ const Employee = () => {
                 >
                     Add People
                 </Button>
+                <div style={{padding:'30px'}}>
                 <ActionButtons
                     onSave={() => console.log("Saving data...")}
                     onCancel={() => console.log("Cancelling...")}
-                />
+                /></div>
             </Box>
         </Box>
     );

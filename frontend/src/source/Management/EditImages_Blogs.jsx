@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Management_DrawerComponent from '../Management_Components/Management_DrawerComponent';
 import Management_Header from '../Management_Components/Management_Header';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -9,11 +9,36 @@ import AddIcon from '@mui/icons-material/Add';
 import { Button } from '@mui/material';
 
 const EditImages_Blogs = () => {
-  const imageData = [
-    { id: 1, title: "Image 1", description: "This is image 1", link: "https://example.com/image1", updatedAt: "2022-01-01" },
-    { id: 2, title: "Image 2", description: "This is image 2", link: "https://example.com/image2", updatedAt: "2022-01-02" },
-    { id: 3, title: "Image 3", description: "This is image 3", link: "https://example.com/image3", updatedAt: "2022-01-03" },
-  ];
+    const [blog, setBlog] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+  
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const response = await fetch('http://127.0.0.1:8000/api/blogs');
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const data = await response.json();
+      
+          console.log(data, 'Fetched Data'); // Log toàn bộ dữ liệu trả về
+          setBlog(data.blogs || []); // Truy cập trường 'blogs'
+        } catch (error) {
+          console.error('Error fetching data:', error);
+          setError(error.message);
+        } finally {
+          setLoading(false);
+        }
+      };      
+  
+      fetchData();
+    }, []);
+    console.log(blog,'blog');
+  
+    
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error loading data: {error}</p>;
 
   return (
     <Box sx={{ display: 'flex', height: '100vh' }}>
@@ -29,19 +54,21 @@ const EditImages_Blogs = () => {
                   <TableCell>ID</TableCell>
                   <TableCell>Title</TableCell>
                   <TableCell>Description</TableCell>
-                  <TableCell>Link</TableCell>
-                  <TableCell>Updated At</TableCell>
+                  <TableCell>Uploaded By</TableCell>
+                  <TableCell>Date Upload</TableCell>
+                  <TableCell>Date Update</TableCell>
                   <TableCell align="right">Actions</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {imageData.map((row) => (
-                  <TableRow key={row.id}>
-                    <TableCell component="th" scope="row">{row.id}</TableCell>
-                    <TableCell>{row.title}</TableCell>
-                    <TableCell>{row.description}</TableCell>
-                    <TableCell style={{ maxWidth: 200, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{row.link}</TableCell>
-                    <TableCell>{row.updatedAt}</TableCell>
+                {Array.isArray(blog) && blog.map((item) => (
+                  <TableRow key={item.id}>
+                    <TableCell component="th" scope="row">{item.id}</TableCell>
+                    <TableCell>{item.title_key}</TableCell>
+                    <TableCell>{item.description_key}</TableCell>
+                    <TableCell style={{ maxWidth: 200, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{item.uploaded_by}</TableCell>
+                    <TableCell>{item.date_upload}</TableCell>
+                    <TableCell>{item.date_updated}</TableCell>
                     <TableCell align="right">
                       <IconButton onClick={() => console.log('Editing', row.id)}><EditIcon /></IconButton>
                       <IconButton onClick={() => console.log('Deleting', row.id)}><DeleteIcon /></IconButton>

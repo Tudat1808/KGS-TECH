@@ -5,7 +5,7 @@ import {
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import PeopleIcon from '@mui/icons-material/People';
 import BusinessIcon from '@mui/icons-material/Business';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import FeedbackIcon from '@mui/icons-material/Feedback';
 import SchoolIcon from '@mui/icons-material/School';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
@@ -23,19 +23,19 @@ const Management_DrawerComponent = () => {
   };
 
   const menuItems = [
-    { text: 'Company Info', icon: <BusinessIcon />, link: '/management/company_info' },
+    { text: 'Company Info', icon: <BusinessIcon />, link: '/management/management_companyinfo' },
     { text: 'Employees', icon: <PeopleIcon />, onClick: handleClick, children: ['Employee1', 'Employee2', 'Employee3'], link: '/management/employee' },
-    { text: 'Time Sheets', icon: <AccessTimeIcon /> },
+    { 
+      text: 'Edit Blogs', 
+      icon: <img src="https://i.fbcd.co/products/resized/resized-750-500/563d0201e4359c2e890569e254ea14790eb370b71d08b6de5052511cc0352313.jpg" style={{ width: 30, height: 30 }} />,
+      link: '/management/editimages_blogs'
+    },
+    { text: 'Customers Feedback', icon: <FeedbackIcon /> },
     { text: 'Training', icon: <SchoolIcon /> },
     { text: 'Performance', icon: <BarChartIcon /> },
     { text: 'HR Calendar', icon: <CalendarTodayIcon /> },
     { text: 'Consulting', icon: <SupportAgentIcon /> },
     { text: 'Project Management', icon: <ProjectIcon /> },
-    { 
-      text: 'Edit Images', 
-      icon: <img src="https://i.fbcd.co/products/resized/resized-750-500/563d0201e4359c2e890569e254ea14790eb370b71d08b6de5052511cc0352313.jpg" style={{ width: 30, height: 30 }} />,
-      link: '/management/editimages_blogs'
-    }
   ];
 
   return (
@@ -50,7 +50,7 @@ const Management_DrawerComponent = () => {
   }}
 >
   <Box sx={{ padding: 2, textAlign: 'center' }}>
-    <Typography variant="h6"><Link to="/management">LOGO</Link></Typography>
+    <Typography variant="h6"><Link to="/management/management_companyinfo">LOGO</Link></Typography>
   </Box>
   <Divider />
   <List sx={{ flexGrow: 1 }}>

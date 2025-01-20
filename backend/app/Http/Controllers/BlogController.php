@@ -4,59 +4,70 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
 class BlogController extends Controller
 {
-    // Get all blogs
     public function index()
     {
         $blogs = Blog::all();
-        return response()->json($blogs);
+        return response()->json(['blogs' => $blogs]);
     }
 
-    // Get a specific blog
-    public function show($id)
+    public function create()
     {
-        $blog = Blog::findOrFail($id);
-        return response()->json($blog);
+        return view('blogs.create');
     }
 
-    // Create a new blog
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'title_key' => 'required|string|max:255',
+            'title_key' => 'required|max:255',
             'description_key' => 'required',
-            'image_url' => 'required|url',
-            'date' => 'required|date', // Adding validation for date
         ]);
-
-        $blog = Blog::create($validatedData);
-        return response()->json($blog, 201);
+    
+        Blog::create($validatedData);
+        return response()->json(['message' => 'Blog created successfully', 'blog' => $validatedData]);
     }
-
-    // Update a blog
     public function update(Request $request, $id)
     {
+        // Tìm blog từ cơ sở dữ liệu
         $blog = Blog::findOrFail($id);
-
+    
+        // Validate dữ liệu nhận được từ request
         $validatedData = $request->validate([
-            'title_key' => 'sometimes|required|string|max:255',
-            'description_key' => 'sometimes|required',
-            'image_url' => 'sometimes|required|url',
-            'date' => 'sometimes|required|date', // Validate date when updating
+            'title_key' => 'required|max:255',
+            'description_key' => 'nullable',
+            'uploaded_by' => 'required|integer',
         ]);
-
-        $blog->update($validatedData);
-        return response()->json($blog);
+    
+        // Điền dữ liệu vào blog
+        $blog->fill($validatedData);
+    
+        // Kiểm tra xem có thay đổi nào trong đối tượng không
+        if ($blog->isDirty()) {
+            $blog->save(); // Lưu các thay đổi vào cơ sở dữ liệu
+            $blog->refresh(); // Refresh đối tượng để lấy dữ liệu mới nhất từ cơ sở dữ liệu
+            return response()->json(['message' => 'Blog updated successfully', 'blog' => $blog]);
+        } else {
+            // Không có thay đổi nào được phát hiện
+            return response()->json([
+                'message' => 'No changes detected',
+                'blog' => $blog,
+                'received_data' => $request->all(),
+                'validatedData' => $validatedData
+            ]);
+        }
     }
+    
+    
 
-    // Delete a blog
-    public function destroy($id)
+    public function destroy(Blog $blog)
     {
-        $blog = Blog::findOrFail($id);
-        $blog->delete();
-        return response()->json(null, 204);
+        try {
+            $blog->delete();
+            return response()->json(['message' => 'Blog deleted successfully']);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Error deleting blog']);
+        }
     }
 }

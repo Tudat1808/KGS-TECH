@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use App\Models\Blog;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class BlogFactory extends Factory
@@ -13,13 +12,12 @@ class BlogFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->sentence(),
-            'slug' => $this->faker->slug(),
-            'content' => $this->faker->paragraphs(5, true),
-            'thumbnail' => $this->faker->imageUrl(640, 480, 'blog', true),
-            'author_id' => User::factory(),
-            'is_published' => $this->faker->boolean(),
-            'published_at' => $this->faker->optional()->dateTimeBetween('-1 year', 'now'),
+            'title_key' => $this->faker->sentence(),
+            'description_key' => $this->faker->paragraph(),
+            'uploaded_by' => \App\Models\User::factory(),
+            'date_upload' => now(),
+            'date_updated' => now()
         ];
     }
 }
+

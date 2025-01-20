@@ -12,8 +12,9 @@ class CreateBlogsTable extends Migration
             $table->id();
             $table->string('title_key');
             $table->text('description_key');
-            $table->string('image_url');
-            $table->date('date'); // Đảm bảo rằng cột này được định nghĩa
+            $table->unsignedBigInteger('uploaded_by');
+            $table->dateTime('date_upload');
+            $table->dateTime('date_updated')->nullable(); // Đảm bảo cột này tồn tại
             $table->timestamps();
         });
     }
@@ -23,4 +24,3 @@ class CreateBlogsTable extends Migration
         Schema::dropIfExists('blogs');
     }
 }
-

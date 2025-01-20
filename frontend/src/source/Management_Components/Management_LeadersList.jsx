@@ -11,7 +11,7 @@ const Management_LeadersList = () => {
     ];
 
     return (
-        <Paper sx={{ margin: 2, padding: 2 }}>
+        <Paper sx={{ margin: 2, padding: 2, backgroundColor: 'grey.100' }}>
             <Typography variant="h6" sx={{ marginBottom: 2 }}>Company's Leaders</Typography>
             <List>
                 {leaders.map((leader, index) => (
