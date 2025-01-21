@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\ValidationException;
 
 class UserController extends Controller
 {
@@ -18,18 +21,16 @@ class UserController extends Controller
     // Tạo một người dùng mới
     public function store(Request $request)
     {
-        // Validate dữ liệu đầu vào
         $validatedData = $request->validate([
             'username' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'nullable|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
-            'phone' => 'required|string',
+            'phone' => 'nullable|string',
             'date_of_birth' => 'nullable|date',
-            'gender' => 'required|in:male,female,other',
-            'is_active' => 'boolean',
+            'gender' => 'nullable|in:male,female,other',
+            'is_active' => 'required|boolean',
         ]);
 
-        // Tạo người dùng mới
         $user = User::create([
             'username' => $validatedData['username'],
             'email' => $validatedData['email'],
@@ -39,6 +40,8 @@ class UserController extends Controller
             'gender' => $validatedData['gender'],
             'is_active' => $validatedData['is_active'] ?? true,
         ]);
+
+        Log::info('New user created: ' . $user->id);
 
         return response()->json($user, 201);
     }
@@ -59,6 +62,7 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::findOrFail($id);
+        $this->authorize('update', $user);  // Check for authorization
 
         $validatedData = $request->validate([
             'username' => 'string|max:255',
@@ -70,12 +74,13 @@ class UserController extends Controller
             'is_active' => 'boolean',
         ]);
 
-        // Nếu có trường password trong request thì mã hóa trước khi lưu
         if (!empty($validatedData['password'])) {
             $validatedData['password'] = Hash::make($validatedData['password']);
         }
 
         $user->update($validatedData);
+
+        Log::info('User updated: ' . $user->id);
 
         return response()->json($user, 200);
     }
@@ -84,7 +89,11 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::findOrFail($id);
+        $this->authorize('delete', $user);  // Check for authorization
+
         $user->delete();
+
+        Log::info('User deleted: ' . $user->id);
 
         return response()->json(['message' => 'User deleted successfully'], 204);
     }

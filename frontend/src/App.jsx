@@ -14,6 +14,7 @@ import EditImages_Blogs from './source/Management/EditImages_Blogs';
 import Employee from './source/Management/Employee';
 import Test from './source/Management/Test';
 import HomePage from './source/Management/HomePage';
+import Customer_Feedback from './source/Management/Customer_Feedback';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/management/employee" element={<Employee/>} />
           <Route path="/management/test" element={<Test/>} />
           <Route path="/management/homepage" element={<HomePage/>} />
+          <Route path="/management/customer_feedback" element={<Customer_Feedback/>} />
         </Route>
       </Routes>
     </Router>

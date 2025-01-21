@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyInfoController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CustomerFeedbackController;
 
 Route::post('/login', [AuthController::class, 'login']);
 
@@ -12,6 +13,7 @@ Route::middleware('auth:api')->group(function() {
     Route::post('/logout', [AuthController::class, 'logout']);
 });
 
+Route::post('/register', 'AuthController@register');
 
 Route::get('/company-info', [CompanyInfoController::class, 'index']); 
 Route::put('/company-info/{id}', [CompanyInfoController::class, 'update']);
@@ -34,3 +36,17 @@ Route::post('/blogs', [BlogController::class, 'store']);  // Create a new blog
 Route::put('/blogs/{id}', [BlogController::class, 'update']);  // Update a blog
 Route::delete('/blogs/{id}', [BlogController::class, 'destroy']);  // Delete a blog
 
+// Route để lấy tất cả các phản hồi
+Route::get('/feedback', [CustomerFeedbackController::class, 'index']);
+
+// Route để lấy một phản hồi cụ thể bởi ID
+Route::get('/feedback/{id}', [CustomerFeedbackController::class, 'show']);
+
+// Route để tạo một phản hồi mới
+Route::post('/feedback', [CustomerFeedbackController::class, 'store']);
+
+// Route để cập nhật thông tin phản hồi
+Route::put('/feedback/{id}', [CustomerFeedbackController::class, 'update']);
+
+// Route để xóa phản hồi
+Route::delete('/feedback/{id}', [CustomerFeedbackController::class, 'destroy']);

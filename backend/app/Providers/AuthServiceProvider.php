@@ -8,16 +8,16 @@ use Illuminate\Support\Facades\Gate;
 class AuthServiceProvider extends ServiceProvider
 {
     /**
-     * The policy mappings for the application.
+     * Các chính sách được đăng ký cho ứng dụng của bạn.
      *
-     * @var array<class-string, class-string>
+     * @var array
      */
     protected $policies = [
-        // 'App\Models\Model' => 'App\Policies\ModelPolicy',
+         // 'App\Model' => 'App\Policies\ModelPolicy',
     ];
 
     /**
-     * Register any authentication / authorization services.
+     * Đăng ký bất kỳ dịch vụ xác thực nào.
      *
      * @return void
      */
@@ -25,6 +25,9 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        // Custom Gates can be added here if needed
+        // Ví dụ về việc định nghĩa một Gate:
+        Gate::define('edit-settings', function ($user) {
+            return $user->isAdmin;
+        });
     }
 }

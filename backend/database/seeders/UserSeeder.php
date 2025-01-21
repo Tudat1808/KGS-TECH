@@ -15,6 +15,6 @@ class UserSeeder extends Seeder
     public function run()
     {
         // Tạo 50 user giả lập
-        User::factory()->count(50)->create();
+        User::factory()->count(10)->create();
     }
 }

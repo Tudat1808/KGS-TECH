@@ -85,10 +85,11 @@ const EditImages_Blogs = () => {
           >
             Add Image
           </Button>
+          <div style={{padding:'30px'}}>
           <ActionButtons
             onSave={() => console.log("Saving data...")}
             onCancel={() => console.log("Cancelling...")}
-          />
+          /></div>
         </Box>
       </Box>
     </Box>
