@@ -13,7 +13,7 @@ Route::middleware('auth:api')->group(function() {
     Route::post('/logout', [AuthController::class, 'logout']);
 });
 
-Route::post('/register', 'AuthController@register');
+Route::post('/register', [AuthController::class, 'register']);
 
 Route::get('/company-info', [CompanyInfoController::class, 'index']); 
 Route::put('/company-info/{id}', [CompanyInfoController::class, 'update']);

@@ -39,6 +39,7 @@ return [
         'api' => [
             'driver' => 'jwt',
             'provider' => 'users',
+            'redirect_path' => env('AUTH_REDIRECT_PATH', '/home'),
         ],
     ],
 

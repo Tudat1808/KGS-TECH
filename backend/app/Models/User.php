@@ -28,6 +28,7 @@ class User extends Authenticatable implements JWTSubject
         'date_of_birth',
         'gender',
         'is_active',
+        'role',
     ];
 
     public function setPasswordAttribute($password)
