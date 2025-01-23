@@ -7,7 +7,6 @@ import EditIcon from '@mui/icons-material/Edit';
 import AddIcon from '@mui/icons-material/Add';
 import ActionButtons from '../Management_Components/ActionButtons';
 
-
 const Employee = () => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -96,36 +95,55 @@ const Employee = () => {
     };
 
     const handleAddSave = async () => {
-        const url = 'http://127.0.0.1:8000/api/users'; // API endpoint
-        const requestOptions = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(newUser) // Convert the newUser state to a JSON string
-        };
+        // Kiểm tra các trường bắt buộc
+        if (!newUser.email || !newUser.password) {
+            console.error("Email and password are required!");
+            alert("Email and password are required!");
+            return;
+        }
+    
+        console.log("Data to be sent:", newUser);
     
         try {
-            const response = await fetch(url, requestOptions);
-            const contentType = response.headers.get('content-type');
+            const response = await fetch('http://127.0.0.1:8000/api/users', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
+                body: JSON.stringify(newUser),
+            });
     
-            // Kiểm tra loại nội dung trả về có phải là JSON không trước khi xử lý như JSON
-            if (!response.ok) {
-                const errorResponse = await response.text(); // Lấy phản hồi dưới dạng text để xem lỗi chi tiết hơn
-                console.error('Failed to create user:', errorResponse);
-                throw new Error('Failed to create user: ' + response.statusText);
-            } else if (contentType && contentType.includes('application/json')) {
-                const addedUser = await response.json(); // Phân tích phản hồi như JSON
-                setUser(prevUsers => [...prevUsers, addedUser]); // Update the local state to include the new user
-                console.log('User added successfully');
-                setIsAddMode(false); // Close the modal
+            if (response.ok) {
+                const createdUser = await response.json();
+                console.log("User added successfully:", createdUser);
+    
+                // Cập nhật danh sách người dùng với người dùng mới
+                setUser((prevUsers) => [...prevUsers, createdUser.user]);
+    
+                // Đóng modal và reset form
+                setNewUser({
+                    username: '',
+                    email: '',
+                    phone: '',
+                    date_of_birth: '',
+                    gender: '',
+                    is_active: true,
+                    role: 'user',
+                });
+                setIsAddMode(false);
             } else {
-                throw new Error('Invalid response type received, expected JSON.');
+                const errorData = await response.json();
+                console.error("Failed to add user:", errorData.message || response.statusText);
+                alert(errorData.message || "Failed to add user");
             }
         } catch (error) {
-            console.error('Error adding user:', error);
+            console.error("Error adding user:", error);
+            alert("An error occurred while adding the user. Please try again.");
         }
-    };    
+    };
+    
+        
     
     const handleEditClick = (user) => {
     
@@ -297,6 +315,16 @@ const Employee = () => {
                             onChange={handleNewUserInputChange}
                             fullWidth
                         />
+<TextField
+    margin="dense"
+    label="Password"
+    name="password"
+    type="password" // Đặt type là "password" để ẩn giá trị nhập
+    value={newUser.password || ''} // Đảm bảo giá trị không bị undefined
+    onChange={handleNewUserInputChange} // Kết nối hàm xử lý sự kiện
+    fullWidth
+    required // Đánh dấu là trường bắt buộc
+/>
                         <TextField
                             margin="dense"
                             label="Email"

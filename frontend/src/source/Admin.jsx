@@ -3,24 +3,19 @@ import '../App.css'; // Đảm bảo đường dẫn đến file CSS chính xác
 import Header from '../components/Header';
 import LoadingPage from '../components/LoadingPage';
 import { useTranslation } from 'react-i18next';
-import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 const Admin = () => {
   const { t } = useTranslation();
-  const [isSignUp, setIsSignUp] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [dob, setDob] = useState('');
-  const [gender, setGender] = useState('');
-  const [phone, setPhone] = useState('');
-
-  const [loading, setLoading] = useState(true); // Thêm state để quản lý loading
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(''); // Thêm state để xử lý lỗi
+  const navigate = useNavigate(); // Sử dụng để điều hướng
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setLoading(false); // Ẩn trang loading sau một khoảng thời gian
+      setLoading(false);
     }, 1500);
     return () => clearTimeout(timer);
   }, []);
@@ -29,10 +24,36 @@ const Admin = () => {
     return <LoadingPage />;
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const userInfo = { username, password, firstName, lastName, dob, gender, phone };
-    console.log('Form submitted:', userInfo);
+    setError(''); // Reset lỗi
+    const userInfo = { email: username, password };
+
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userInfo),
+      });
+
+      if (!response.ok) {
+        throw new Error('Invalid credentials'); // Xử lý khi API trả lỗi
+      }
+
+      const data = await response.json();
+      console.log('Login successful:', data);
+
+      // Lưu token vào localStorage hoặc sessionStorage
+      localStorage.setItem('access_token', data.access_token);
+
+      // Điều hướng đến trang quản lý
+      navigate('/management/homepage');
+    } catch (error) {
+      console.error('Login error:', error);
+      window.alert('Invalid username or password'); // Hiển thị lỗi cho người dùng
+    }
   };
 
   return (
@@ -45,71 +66,10 @@ const Admin = () => {
         <div className="login-background">
           <div className="background-image"></div>
         </div>
-        <div className={`${isSignUp ? 'signup-form-container' : 'login-form-container'} animate__animated animate__fadeIn`}>
+        <div className="login-form-container animate__animated animate__fadeIn">
           <form onSubmit={handleSubmit} className="login-form">
-            <h1 className="text-center">{isSignUp ? t('admin.signUpTitle') : t('admin.loginTitle')}</h1>
-            {isSignUp && (
-              <>
-                <div className="input-group">
-                  <label htmlFor="firstName">{t('admin.firstName')}</label>
-                  <input
-                    type="text"
-                    id="firstName"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                    placeholder={t('admin.firstNamePlaceholder')}
-                    style={{ fontStyle: 'italic', fontSize: 'small' }}
-                  />
-                </div>
-                <div className="input-group">
-                  <label htmlFor="lastName">{t('admin.lastName')}</label>
-                  <input
-                    type="text"
-                    id="lastName"
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
-                    placeholder={t('admin.lastNamePlaceholder')}
-                    style={{ fontStyle: 'italic', fontSize: 'small' }}
-                  />
-                </div>
-                <div className="input-group">
-                  <label htmlFor="dob">{t('admin.dob')}</label>
-                  <input
-                    type="date"
-                    id="dob"
-                    value={dob}
-                    onChange={(e) => setDob(e.target.value)}
-                    placeholder={t('admin.dobPlaceholder')}
-                    style={{ fontStyle: 'italic', fontSize: 'small' }}
-                  />
-                </div>
-                <div className="input-group">
-                  <label htmlFor="gender">{t('admin.gender')}</label>
-                  <select
-                    id="gender"
-                    className="select-custom"
-                    value={gender}
-                    onChange={(e) => setGender(e.target.value)}
-                  >
-                    <option value="">{t('admin.select')}</option>
-                    <option value="male">{t('admin.male')}</option>
-                    <option value="female">{t('admin.female')}</option>
-                    <option value="other">{t('admin.other')}</option>
-                  </select>
-                </div>
-                <div className="input-group">
-                  <label htmlFor="phone">{t('admin.phone')}</label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    placeholder={t('admin.phonePlaceholder')}
-                    style={{ fontStyle: 'italic', fontSize: 'small' }}
-                  />
-                </div>
-              </>
-            )}
+            <h1 className="text-center">{t('admin.loginTitle')}</h1>
+            {error && <p className="error-message">{error}</p>}
             <div className="input-group">
               <label htmlFor="username">{t('admin.username')}</label>
               <input
@@ -132,17 +92,11 @@ const Admin = () => {
                 style={{ fontStyle: 'italic', fontSize: 'small' }}
               />
             </div>
-            <Link to="/management" style={{ textDecoration: 'none' }}>
-              <button className="login-button" type="submit">
-                {isSignUp ? t('admin.signUpButton') : t('admin.loginButton')}
-              </button>
-            </Link>
-            <button type="button" className="signup-button" onClick={() => setIsSignUp(!isSignUp)}>
-              {isSignUp ? t('admin.backToLogin') : t('admin.signUpButton')}
+            <button className="login-button" type="submit">
+              {t('admin.loginButton')}
             </button>
           </form>
         </div>
-
       </div>
     </>
   );

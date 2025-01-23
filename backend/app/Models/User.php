@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -17,7 +18,28 @@ class User extends Authenticatable implements JWTSubject
 
     public function getJWTCustomClaims()
     {
-        return [];
+        $permissions = [];
+
+        // Xác định quyền dựa trên vai trò
+        switch ($this->role) {
+            case 'admin':
+                $permissions = ['create', 'read', 'update', 'delete', 'manage_users']; // Quyền cao nhất
+                break;
+    
+            case 'manager':
+                $permissions = ['create', 'read', 'update']; // Quyền trung bình
+                break;
+    
+            case 'user':
+            default:
+                $permissions = ['read']; // Quyền cơ bản
+                break;
+        }
+    
+        return [
+            'role' => $this->role,
+            'permissions' => $permissions, // Thêm danh sách quyền vào claims
+        ];
     }
 
     protected $fillable = [
@@ -31,9 +53,12 @@ class User extends Authenticatable implements JWTSubject
         'role',
     ];
 
-    public function setPasswordAttribute($password)
+    // public function setPasswordAttribute($password)
+    // {
+    //     $this->attributes['password'] = Hash::make($password);
+    // }
+    public function hasRole($role)
     {
-        $this->attributes['password'] = bcrypt($password);
+        return $this->role === $role;
     }
-
 }

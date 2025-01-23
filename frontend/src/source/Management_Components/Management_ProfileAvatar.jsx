@@ -12,6 +12,7 @@ const Management_ProfileAvatar = () => {
     };
 
     const handleAvatarClose = () => {
+        localStorage.removeItem('access_token');
         setAnchorEl(null);
     };
 

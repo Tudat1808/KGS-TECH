@@ -43,40 +43,33 @@ class AuthController extends Controller
 //     ]);
 // }
 public function login(Request $request)
-    {
-        try {
-            $credentials = $request->only('email', 'password');
-            \Log::info('Login Credentials:', $credentials);
+{
+    // Validate thông tin đầu vào
+    $validatedData = $request->validate([
+        'email' => 'required|email',
+        'password' => 'required'
+    ]);
 
-            $user = User::where('email', $credentials['email'])->first();
-            if (!$user) {
-                \Log::error('User Not Found');
-                return response()->json(['message' => 'Invalid credentials'], 401);
-            }
+    // Tìm người dùng dựa trên email
+    $user = User::where('email', $validatedData['email'])->first();
 
-            // So sánh hash mật khẩu
-            \Log::info('Hashed Password from DB:', ['password' => $user->password]);
-            if (!Hash::check($credentials['password'], $user->password)) {
-                \Log::error('Password Mismatch');
-                return response()->json(['message' => 'Invalid credentials'], 401);
-            }
-
-            // Tạo token từ thông tin user
-            $token = JWTAuth::fromUser($user);
-            \Log::info('Generated Token:', ['token' => $token]);
-
-            // Trả cả token và thông tin user trong response
-            return response()->json([
-                'message' => 'Login successful',
-                'access_token' => $token,
-                'user' => $user, // Trả thông tin đầy đủ của user
-            ], 200);
-        } catch (\Exception $e) {
-            \Log::error('Login Error:', ['error' => $e->getMessage()]);
-            return response()->json(['message' => 'Server Error'], 500);
-        }
+    // Kiểm tra mật khẩu trực tiếp (vì mật khẩu ở dạng plaintext)
+    if (!$user || $user->password !== $validatedData['password']) {
+        return response()->json(['message' => 'Invalid credentials'], 401);
     }
 
+    // Tạo token JWT
+    $token = JWTAuth::fromUser($user);
+
+    // Trả về token và thông tin người dùng
+    return response()->json([
+        'message' => 'Login successful',
+        'access_token' => $token,
+        'token_type' => 'bearer',
+        'expires_in' => auth('api')->factory()->getTTL() * 60,
+        'user' => $user->only('id', 'email', 'username', 'phone', 'date_of_birth', 'gender', 'role'),
+    ], 200);
+}
 
 
     public function logout(Request $request)
@@ -105,7 +98,7 @@ public function login(Request $request)
             'password' => bcrypt($validatedData['password']),
         ]);
 
-        $token = $user->createToken('YourAppToken')->accessToken;
+     
 
         return response()->json(['token' => $token], 201);
     }
