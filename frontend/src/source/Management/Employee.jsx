@@ -315,16 +315,16 @@ const Employee = () => {
                             onChange={handleNewUserInputChange}
                             fullWidth
                         />
-<TextField
-    margin="dense"
-    label="Password"
-    name="password"
-    type="password" // Đặt type là "password" để ẩn giá trị nhập
-    value={newUser.password || ''} // Đảm bảo giá trị không bị undefined
-    onChange={handleNewUserInputChange} // Kết nối hàm xử lý sự kiện
-    fullWidth
-    required // Đánh dấu là trường bắt buộc
-/>
+                        <TextField
+                            margin="dense"
+                            label="Password"
+                            name="password"
+                            type="password" // Đặt type là "password" để ẩn giá trị nhập
+                            value={newUser.password || ''} // Đảm bảo giá trị không bị undefined
+                            onChange={handleNewUserInputChange} // Kết nối hàm xử lý sự kiện
+                            fullWidth
+                            required // Đánh dấu là trường bắt buộc
+                        />
                         <TextField
                             margin="dense"
                             label="Email"
