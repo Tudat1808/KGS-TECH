@@ -179,10 +179,10 @@ const EditImages_Blogs = () => {
                       <Table sx={{ minWidth: 650 }} aria-label="simple table">
                           <TableHead>
                               <TableRow>
-                                  <TableCell sx={{ width: "10%" }}>ID</TableCell>
-                                  <TableCell sx={{ width: "20%" }}>Title</TableCell>
-                                  <TableCell sx={{ width: "25%" }}>Description</TableCell>
-                                  <TableCell sx={{ width: "15%" }}>Uploaded By</TableCell>
+                                  <TableCell sx={{ width: "5%" }}>ID</TableCell>
+                                  <TableCell sx={{ width: "10%" }}>Title</TableCell>
+                                  <TableCell sx={{ width: "35%" }}>Description</TableCell>
+                                  <TableCell sx={{ width: "5%" }}>Uploaded By</TableCell>
                                   <TableCell sx={{ width: "10%" }}>Actions</TableCell>
                               </TableRow>
                           </TableHead>

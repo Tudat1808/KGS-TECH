@@ -218,15 +218,15 @@ const Employee = () => {
                     <Table sx={{ minWidth: 650 }} aria-label="simple table">
                         <TableHead>
                             <TableRow>
-                                <TableCell>ID</TableCell>
-                                <TableCell>Username</TableCell>
-                                <TableCell>Email</TableCell>
-                                <TableCell>Phone</TableCell>
-                                <TableCell>Birth Date</TableCell>
-                                <TableCell>Gender</TableCell>
-                                <TableCell>Status</TableCell>
-                                <TableCell>Roles</TableCell>
-                                <TableCell align="right">Actions</TableCell>
+                                <TableCell sx={{width:'5%'}}>ID</TableCell>
+                                <TableCell sx={{width:'10%'}}>Username</TableCell>
+                                <TableCell sx={{width:'10%'}}>Email</TableCell>
+                                <TableCell sx={{width:'10%'}}>Phone</TableCell>
+                                <TableCell sx={{width:'10%'}}>Birth Date</TableCell>
+                                <TableCell sx={{width:'10%'}}>Gender</TableCell>
+                                <TableCell sx={{width:'10%'}}>Status</TableCell>
+                                <TableCell sx={{width:'10%'}}>Roles</TableCell>
+                                <TableCell sx={{width:'10%'}}>Actions</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -240,7 +240,7 @@ const Employee = () => {
                                     <TableCell>{user.gender}</TableCell>
                                     <TableCell>{user.is_active}</TableCell>
                                     <TableCell>{user.role}</TableCell>
-                                    <TableCell align="right">
+                                    <TableCell>
                                         <IconButton onClick={() => handleEditClick(user)}><EditIcon /></IconButton>
                                         <IconButton onClick={() => handleDelete(user.id)}><DeleteIcon /></IconButton>
                                     </TableCell>
