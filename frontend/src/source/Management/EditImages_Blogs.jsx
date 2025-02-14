@@ -4,7 +4,6 @@ import Management_Header from '../Management_Components/Management_Header';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField, Typography } from '@mui/material';
-import ActionButtons from '../Management_Components/ActionButtons';
 import AddIcon from '@mui/icons-material/Add';
 
 const EditImages_Blogs = () => {
@@ -176,36 +175,37 @@ const EditImages_Blogs = () => {
                       Add More
                   </Button>
                   <TableContainer component={Paper} sx={{ backgroundColor: "grey.100" }}>
-                      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                          <TableHead>
-                              <TableRow>
-                                  <TableCell sx={{ width: "5%" }}>ID</TableCell>
-                                  <TableCell sx={{ width: "10%" }}>Title</TableCell>
-                                  <TableCell sx={{ width: "35%" }}>Description</TableCell>
-                                  <TableCell sx={{ width: "5%" }}>Uploaded By</TableCell>
-                                  <TableCell sx={{ width: "10%" }}>Actions</TableCell>
-                              </TableRow>
-                          </TableHead>
-                          <TableBody>
-                              {blog.map((blogItem) => (
-                                  <TableRow key={blogItem.id}>
-                                      <TableCell>{blogItem.id}</TableCell>
-                                      <TableCell>{blogItem.title_key}</TableCell>
-                                      <TableCell>{blogItem.description_key}</TableCell>
-                                      <TableCell>{blogItem.uploaded_by}</TableCell>
-                                      <TableCell>
-                                          <IconButton onClick={() => handleEditClick(blogItem)}>
-                                              <EditIcon />
-                                          </IconButton>
-                                          <IconButton onClick={() => handleDelete(blogItem.id)}>
-                                              <DeleteIcon />
-                                          </IconButton>
-                                      </TableCell>
-                                  </TableRow>
-                              ))}
-                          </TableBody>
-                      </Table>
-                  </TableContainer>
+                    <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                        <TableHead>
+                        <TableRow>
+                            <TableCell sx={{ width: "5%"}}>ID</TableCell>
+                            <TableCell sx={{ width: "10%"}}>Title</TableCell>
+                            <TableCell sx={{ width: "35%"}}>Description</TableCell>
+                            <TableCell sx={{ width: "5%", textAlign: "center" }}>Uploaded By</TableCell>
+                            <TableCell sx={{ width: "10%", textAlign: "center" }}>Actions</TableCell>
+                        </TableRow>
+                        </TableHead>
+                        <TableBody>
+                        {blog.map((blogItem) => (
+                            <TableRow key={blogItem.id}>
+                            <TableCell >{blogItem.id}</TableCell>
+                            <TableCell >{blogItem.title_key}</TableCell>
+                            <TableCell >{blogItem.description_key}</TableCell>
+                            <TableCell sx={{ textAlign: "center" }}>{blogItem.uploaded_by}</TableCell>
+                            <TableCell sx={{ textAlign: "center" }}>
+                                <IconButton onClick={() => handleEditClick(blogItem)}>
+                                <EditIcon />
+                                </IconButton>
+                                <IconButton onClick={() => handleDelete(blogItem.id)}>
+                                <DeleteIcon />
+                                </IconButton>
+                            </TableCell>
+                            </TableRow>
+                        ))}
+                        </TableBody>
+                    </Table>
+                    </TableContainer>
+
                   {/* Edit Modal */}
                   <Dialog open={open} onClose={() => setOpen(false)}>
                       <DialogTitle>Edit Blog</DialogTitle>

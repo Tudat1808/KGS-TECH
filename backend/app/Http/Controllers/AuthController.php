@@ -54,20 +54,20 @@ public function login(Request $request)
     $user = User::where('email', $validatedData['email'])->first();
 
     // Kiểm tra mật khẩu trực tiếp (vì mật khẩu ở dạng plaintext)
-    if (!$user || $user->password !== $validatedData['password']) {
+    if (!$user || !Hash::check($validatedData['password'], $user->password)) {
         return response()->json(['message' => 'Invalid credentials'], 401);
     }
 
     // Tạo token JWT
     $token = JWTAuth::fromUser($user);
 
-    // Trả về token và thông tin người dùng
+    // Trả về token và thông tin người dùng, bao gồm cả vai trò (role)
     return response()->json([
         'message' => 'Login successful',
         'access_token' => $token,
         'token_type' => 'bearer',
         'expires_in' => auth('api')->factory()->getTTL() * 60,
-        'user' => $user->only('id', 'email', 'username', 'phone', 'date_of_birth', 'gender', 'role'),
+        'user' => $user->only('id', 'email', 'username', 'phone', 'date_of_birth', 'gender', 'role'), // Bao gồm thông tin role
     ], 200);
 }
 

@@ -69,3 +69,7 @@ Route::middleware(['auth:api'])->group(function () {
     Route::get('/user-dashboard', [UserController::class, 'index']);
 });
 
+Route::middleware('admin')->group(function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'dashboard']);
+});
+

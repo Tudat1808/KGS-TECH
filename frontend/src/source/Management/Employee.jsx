@@ -22,7 +22,8 @@ const Employee = () => {
         }
     
         // So sánh selectedUser với dữ liệu gốc để tìm các trường đã thay đổi
-        const updatedData = {};
+        const updatedData = { ...selectedUser };
+        
         Object.keys(selectedUser).forEach((key) => {
             if (selectedUser[key] !== originalUser[key]) {
                 updatedData[key] = selectedUser[key];
@@ -51,8 +52,13 @@ const Employee = () => {
     
             if (response.ok) {
                 console.log('User updated successfully.');
-                // Reload toàn bộ trang
-                window.location.href = window.location.href;
+                // Cập nhật dữ liệu người dùng trong state mà không cần reload trang
+                setUser((prevUsers) =>
+                    prevUsers.map((user) =>
+                        user.id === selectedUser.id ? { ...user, ...updatedData } : user
+                    )
+                );
+                setOpen(false); // Đóng modal hoặc cửa sổ
             } else {
                 console.error('Failed to update user:', response.statusText);
             }
@@ -60,6 +66,7 @@ const Employee = () => {
             console.error('Error updating user:', error);
         }
     };
+    
     
     
     const [isAddMode, setIsAddMode] = useState(false); // Quản lý trạng thái "Thêm User"
@@ -217,35 +224,39 @@ const Employee = () => {
                 <TableContainer component={Paper} sx={{ backgroundColor: 'grey.100' }}>
                     <Table sx={{ minWidth: 650 }} aria-label="simple table">
                         <TableHead>
-                            <TableRow>
-                                <TableCell sx={{width:'5%'}}>ID</TableCell>
-                                <TableCell sx={{width:'10%'}}>Username</TableCell>
-                                <TableCell sx={{width:'10%'}}>Email</TableCell>
-                                <TableCell sx={{width:'10%'}}>Phone</TableCell>
-                                <TableCell sx={{width:'10%'}}>Birth Date</TableCell>
-                                <TableCell sx={{width:'10%'}}>Gender</TableCell>
-                                <TableCell sx={{width:'10%'}}>Status</TableCell>
-                                <TableCell sx={{width:'10%'}}>Roles</TableCell>
-                                <TableCell sx={{width:'10%'}}>Actions</TableCell>
-                            </TableRow>
+                        <TableRow>
+                            <TableCell sx={{ width: '5%' }}>ID</TableCell>
+                            <TableCell sx={{ width: '10%' }}>Username</TableCell>
+                            <TableCell sx={{ width: '10%' }}>Email</TableCell>
+                            <TableCell sx={{ width: '10%' }}>Phone</TableCell>
+                            <TableCell sx={{ width: '10%' }}>Birth Date</TableCell>
+                            <TableCell sx={{ width: '10%' }}>Gender</TableCell>
+                            <TableCell sx={{ width: '10%', textAlign: 'center' }}>Status</TableCell> {/* Chỉnh sửa cột Status */}
+                            <TableCell sx={{ width: '10%' }}>Roles</TableCell>
+                            <TableCell sx={{ width: '10%' }}>Actions</TableCell>
+                        </TableRow>
                         </TableHead>
                         <TableBody>
-                            {user.map((user) => (
-                                <TableRow key={user.id}>
-                                    <TableCell>{user.id}</TableCell>
-                                    <TableCell>{user.username}</TableCell>
-                                    <TableCell>{user.email}</TableCell>
-                                    <TableCell>{user.phone}</TableCell>
-                                    <TableCell>{user.date_of_birth}</TableCell>
-                                    <TableCell>{user.gender}</TableCell>
-                                    <TableCell>{user.is_active}</TableCell>
-                                    <TableCell>{user.role}</TableCell>
-                                    <TableCell>
-                                        <IconButton onClick={() => handleEditClick(user)}><EditIcon /></IconButton>
-                                        <IconButton onClick={() => handleDelete(user.id)}><DeleteIcon /></IconButton>
-                                    </TableCell>
-                                </TableRow>
-                            ))}
+                        {user.map((user) => (
+                            <TableRow key={user.id}>
+                            <TableCell>{user.id}</TableCell>
+                            <TableCell>{user.username}</TableCell>
+                            <TableCell>{user.email}</TableCell>
+                            <TableCell>{user.phone}</TableCell>
+                            <TableCell>{user.date_of_birth}</TableCell>
+                            <TableCell>{user.gender}</TableCell>
+                            <TableCell sx={{ textAlign: 'center' }}>{user.is_active}</TableCell> {/* Căn giữa nội dung Status */}
+                            <TableCell>{user.role}</TableCell>
+                            <TableCell>
+                                <IconButton onClick={() => handleEditClick(user)}>
+                                <EditIcon />
+                                </IconButton>
+                                <IconButton onClick={() => handleDelete(user.id)}>
+                                <DeleteIcon />
+                                </IconButton>
+                            </TableCell>
+                            </TableRow>
+                        ))}
                         </TableBody>
                     </Table>
                 </TableContainer>

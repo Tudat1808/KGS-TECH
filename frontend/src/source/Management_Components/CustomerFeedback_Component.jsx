@@ -7,7 +7,6 @@ import {
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import AddIcon from '@mui/icons-material/Add';
 import ActionButtons from '../Management_Components/ActionButtons';
 
 const CustomerFeedback_Component = () => {
@@ -120,7 +119,6 @@ const CustomerFeedback_Component = () => {
                 />
             </div>
 
-            {/* Dialog chỉnh sửa Feedback */}
             <Dialog open={openEditDialog} onClose={handleCloseDialog}>
                 <DialogTitle>Edit Feedback</DialogTitle>
                 <DialogContent>

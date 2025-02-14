@@ -45,6 +45,7 @@ class Kernel extends HttpKernel
      * Áp dụng cho từng route cụ thể.
      */
     protected $routeMiddleware = [
+        'admin' => \App\Http\Middleware\AdminMiddleware::class,
         'auth' => \App\Http\Middleware\Authenticate::class, // Xác thực người dùng
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class, // Xác thực cơ bản
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class, // Thiết lập cache header
