@@ -16,6 +16,16 @@ class BlogController extends Controller
         return response()->json($blogs, 200);
     }
 
+    public function show($id)
+{
+    $blog = Blog::find($id);
+    if (!$blog) {
+        return response()->json(['message' => 'Blog not found'], 404);
+    }
+    return response()->json($blog);
+}
+
+
     // Tạo một blog mới
     public function store(Request $request)
     {
@@ -24,9 +34,9 @@ class BlogController extends Controller
         $validatedData = $request->validate([
             'title_key' => 'required|max:255',
             'description_key' => 'required',
-            'uploaded_by' => 'required|integer',
-            'date_upload' => 'required|date',
-            'date_updated' => 'required|date'
+            'uploaded_by' => 'required|string | max:255',
+            'date_upload' => 'nullable|date',
+            'date_updated' => 'nullable|date'
         ]);
 
         try {

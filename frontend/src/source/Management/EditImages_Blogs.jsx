@@ -65,7 +65,7 @@ const EditImages_Blogs = () => {
 
         if (!response.ok) {
             console.error(`Failed to update blog: ${response.status} ${response.statusText}`);
-            const errorText = await response.text(); // Đọc nội dung lỗi từ server
+            const errorText = await response.text();
             console.error('Error details:', errorText);
             return;
         }
@@ -107,25 +107,47 @@ const EditImages_Blogs = () => {
   };
 
   const handleAddBlog = async (newBlog) => {
-      try {
-          const response = await fetch("http://127.0.0.1:8000/api/blogs", {
-              method: "POST",
-              headers: {
-                  "Content-Type": "application/json",
-                  Authorization: `Bearer ${localStorage.getItem("token")}`,
-              },
-              body: JSON.stringify(newBlog),
-          });
-          if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          const data = await response.json();
-          setBlog([...blog, data]);
-          console.log("Blog added successfully:", data);
-      } catch (error) {
-          console.error("Error adding blog:", error);
-      }
-  };
+    try {
+        console.log("Sending data:", newBlog);
+
+        const formattedBlog = {
+            ...newBlog,
+            uploaded_by: parseInt(newBlog.uploaded_by, 10), // Đảm bảo uploaded_by là số
+            date_upload: new Date().toISOString().split('T')[0], // Định dạng YYYY-MM-DD
+        };
+
+        const response = await fetch("http://127.0.0.1:8000/api/blogs", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+            body: JSON.stringify(formattedBlog),
+        });
+
+        const text = await response.text();
+        console.log("Raw response:", text);
+
+        let data;
+        try {
+            data = JSON.parse(text);
+        } catch (error) {
+            throw new Error(`Invalid JSON response: ${text}`);
+        }
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}, Message: ${data.message || "Unknown error"}`);
+        }
+
+        setBlog([...blog, data]);
+        console.log("Blog added successfully:", data);
+    } catch (error) {
+        console.error("Error adding blog:", error);
+    }
+};
+
+
 
   useEffect(() => {
       const fetchData = async () => {
